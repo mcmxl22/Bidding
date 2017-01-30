@@ -14,7 +14,7 @@ def Create_DataBase():
 		
     Create_Ask = raw_input('What do you want to do? > ')
     
-	if Create_Ask == '1':
+    if Create_Ask == '1':
         conn = sqlite3.connect('bid.db') 
         cursor = conn.cursor()
         sql = '''create table bid (
@@ -25,7 +25,7 @@ def Create_DataBase():
         cursor.close()
 		
     #Create a database of all existing bid lines.
-    elif Create_Ask == '2'
+    elif Create_Ask == '2':
         conn = sqlite3.connect('bid.db') 
         cursor = conn.cursor()
         sql = '''create table bid (
@@ -34,7 +34,7 @@ def Create_DataBase():
         cursor.close()
 	
     else:
-        print('Invalid entry!')
+        print ('Invalid entry!')
         Create_DataBase()
 
 #Create an interface to allow employees to bid on the bid lines starting with the highest seniority.
@@ -58,41 +58,44 @@ def Activity_Choices():
         if Ask == 'y':
             print ('Under development\n')
             Activity_Choices()
+            #Have the employee enter their name and seniority number.
+            #Ask = raw_input('Enter your name and seniority numer. > ')
+        
+            #Check employee is next in line by seniority number.
+        
+            #List available bid lines and employee's current bid line.
+        
+            #Have employee enter new bid line choice.
+            #Ask = raw_input('Enter your bid. > ')
+    
+            #If chosen bid line is available assign it to the employee and make it unavailable to others.
+
+            #If chosen bidline is not available have employee choose another one.
         
         #If no, return to activity list.
         elif Ask == 'n':
             Activity_Choices()
             
         else:
-            print('Invalid entry!')
-            print(choices)
-            
-        #Have the employee enter their name and seniority number.
-        #Ask = raw_input('Enter your name and seniority numer. > ')
-
-        #Check employee is next in line by seniority number.
-        
-        #List available bid lines and employee's current bid line.
-        
-        #Have employee enter new bid line choice.
-        #Ask = raw_input('Enter your bid. > ')
-    
-        #If chosen bid line is available assign it to the employee and make it unavailable to others.
-
-        #If chosen bidline is not available have employee choose another one.
+            print ('Invalid entry!')
+            print (choices)
 
     #View available bid lines.
     if New_Ask == '2':
-        print('Under development\n')
+        print ('Under development\n')
         Activity_Choices()
         #Display database of all existing bid lines.
 
     #View current bid assignments.
     if New_Ask == '3':
-        View_Actions = ('1 By employee', '2 By bid line')
-        for i in View_Actions:
-            print ('%s' % i)
-        print('Under development\n')
+        conn = sqlite3.connect('Bid.db')
+        cursor = conn.cursor()
+        sql = '''select * from bid'''
+        results = cursor.execute(sql)
+        all_employees = results.fetchall()
+
+        for employee in all_employees:
+            print (employee)
         Activity_Choices()
 
     #Edit bid lines.
@@ -100,7 +103,7 @@ def Activity_Choices():
         Edit_Actions = ('1 Change existing bid lines', '2 Add new bid lines', '3 Delete bid lines')
         for i in Edit_Actions:
             print ('%s' % i)
-        print('Under development\n')
+        print ('Under development\n')
         Activity_Choices()
 
     #Edit Employees.
@@ -112,8 +115,7 @@ def Activity_Choices():
         Activity_Choices()
 
     else:
-        print('Invalid entry!')
+        print ('Invalid entry!')
         Activity_Choices()
 
 Activity_Choices()
-
