@@ -96,6 +96,7 @@ def Activity_Choices():
 
         for employee in all_employees:
             print (employee)
+	cursor.close()
         Activity_Choices()
 
     #Edit bid lines.
