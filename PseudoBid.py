@@ -30,23 +30,63 @@ def Activity_Choices():
         Ask = raw_input('> ')
         #If yes, proceed.
         if Ask == 'y':
+            print ('Under development')
+            Activity_Choices()
+        
+        #If no, return to activity list.
+        elif Ask == 'n':
+            Activity_Choices()
+            
+        else:
+            print('Invalid entry')
+            print(choices)
             
         #Have the employee enter their name and seniority number.
+        #Ask = raw_input('Enter your name and seniority numer. > ')
 
         #Check employee is next in line by seniority number.
         
         #List available bid lines and employee's current bid line.
         
         #Have employee enter new bid line choice.
+        #Ask = raw_input('Enter your bid. > ')
     
         #If chosen bid line is available assign it to the employee and make it unavailable to others.
 
         #If chosen bidline is not available have employee choose another one.
 
-            print ('Under development')
-            Activity_Choices()
+    #View available bid lines.
+    if Ask == '2':
+        print('Under development')
+        Activity_Choices()
+        #Display database of all existing bid lines.
+    
+    #View current bid assignments.
+    if Ask == '3':
+        print('Under development')
+        Activity_Choices()
+    #List choices.
+        Actions = ('By employee', 'By bid line')
+    
+    #Edit bid lines.
+    if Ask == '4':
+        #List choices
+        Actions = ('Change existing bid lines', 'Add new bid lines', 'Delete bid lines')
+        #for i in Actions:
+            #print ('%s' % i)
+        print('Under development')
+        Activity_Choices()
 
-        #If no, return to activity list.
+    #Edit Employees.
+    if Ask == '5':
+        #List choices.
+        Edit_Choices = ('Change existing employee', 'Add new employee', 'Delete employee')
+        #for i in Edit_Choices:
+            #print ('%s' % i)
+        print('Under development')
+        Activity_Choices()
+        
+Activity_Choices()
         elif Ask == 'n':
             Activity_Choices()
         else:
