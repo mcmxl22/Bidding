@@ -65,6 +65,7 @@ def Activity_Choices():
     if Ask == '3':
         print('Under development')
         Activity_Choices()
+        
     #List choices.
         Actions = ('By employee', 'By bid line')
     
@@ -85,13 +86,6 @@ def Activity_Choices():
             #print ('%s' % i)
         print('Under development')
         Activity_Choices()
-        
-Activity_Choices()
-        elif Ask == 'n':
-            Activity_Choices()
-        else:
-            print('Invalid entry')
-            print(choices)
             
     #View available bid lines.
     if Ask == '2':
