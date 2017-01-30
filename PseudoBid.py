@@ -1,36 +1,38 @@
 #By Micah M. 2017            
 
 #Create a database of all employees with their seniority numbers and current bid line numbers.
-#def Create_DataBase():
-    #conn = sqlite3.connect('bid.db') 
-    #cursor = conn.cursor()
-    #sql = '''create table bid (
+def Create_DataBase():
+    conn = sqlite3.connect('bid.db') 
+    cursor = conn.cursor()
+    sql = '''create table bid (
         #Name text,
         #Seniority int,
         #Bidline int)'''
-    #cursor.execute(sql)
-    #cursor.close()
+    cursor.execute(sql)
+    cursor.close()
 
 #Create a database of all existing bid lines.
 
 #Create an interface to allow employees to bid on the bid lines starting with the highest seniority.
 def Activity_Choices():
-    Actions = ('1 New Bid', '2 View available bid lines', '3 View current bid assignments', '4 Edit bid lines',  '5 Edit Employees\n')
+    Actions = ('1 New Bid', '2 View available bid lines', '3 View current bid assignments', 
+    '4 Edit bid lines',  '5 Edit Employees\n')
     for i in Actions:
         print ('%s' % i)
         
-    Ask = raw_input('Choose an option. > ')
-    #New bid
-    if Ask == '1':
-        #Ask if a new bid is being started.
+     #New bid   
+    New_Ask = raw_input('Choose an option. > ')
+    if New_Ask == '1':
         print ('Do you want to start a new bid?') 
-        choices = {'y', 'n'}
-        for i in choices:
+        New_Choices = {'y', 'n'}
+        for i in New_Choices:
             print ('%s' % i)
+			
         Ask = raw_input('> ')
+            
         #If yes, proceed.
         if Ask == 'y':
-            print ('Under development')
+            print ('Under development\n')
             Activity_Choices()
         
         #If no, return to activity list.
@@ -38,7 +40,7 @@ def Activity_Choices():
             Activity_Choices()
             
         else:
-            print('Invalid entry')
+            print('Invalid entry!')
             print(choices)
             
         #Have the employee enter their name and seniority number.
@@ -56,66 +58,37 @@ def Activity_Choices():
         #If chosen bidline is not available have employee choose another one.
 
     #View available bid lines.
-    if Ask == '2':
-        print('Under development')
+    if New_Ask == '2':
+        print('Under development\n')
         Activity_Choices()
         #Display database of all existing bid lines.
     
     #View current bid assignments.
-    if Ask == '3':
-        print('Under development')
+    if New_Ask == '3':
+        View_Actions = ('1 By employee', '2 By bid line')
+        for i in View_Actions:
+            print ('%s' % i)
+        print('Under development\n')
         Activity_Choices()
-        
-    #List choices.
-        Actions = ('By employee', 'By bid line')
     
     #Edit bid lines.
-    if Ask == '4':
-        #List choices
-        Actions = ('Change existing bid lines', 'Add new bid lines', 'Delete bid lines')
-        #for i in Actions:
-            #print ('%s' % i)
-        print('Under development')
+    if New_Ask == '4':
+        Edit_Actions = ('1 Change existing bid lines', '2 Add new bid lines', '3 Delete bid lines')
+        for i in Edit_Actions:
+            print ('%s' % i)
+        print('Under development\n')
         Activity_Choices()
 
     #Edit Employees.
-    if Ask == '5':
-        #List choices.
-        Edit_Choices = ('Change existing employee', 'Add new employee', 'Delete employee')
-        #for i in Edit_Choices:
-            #print ('%s' % i)
-        print('Under development')
+    if New_Ask == '5':
+        Edit_Choices = ('1 Change existing employee', '2 Add new employee', '3 Delete employee')
+        for i in Edit_Choices:
+            print ('%s' % i)
+        print('Under development\n')
         Activity_Choices()
-            
-    #View available bid lines.
-    if Ask == '2':
-        print('Under development')
-        Activity_Choices()
-        #Display database of all existing bid lines.
     
-    #View current bid assignments.
-    if Ask == '3':
-        print('Under development')
-        Activity_Choices()
-    #List choices.
-        Actions = ('By employee', 'By bid line')
-    
-    #Edit bid lines.
-    if Ask == '4':
-        #List choices
-        Actions = ('Change existing bid lines', 'Add new bid lines', 'Delete bid lines')
-        #for i in Actions:
-            #print ('%s' % i)
-        print('Under development')
-        Activity_Choices()
-
-    #Edit Employees.
-    if Ask == '5':
-        #List choices.
-        Edit_Choices = ('Change existing employee', 'Add new employee', 'Delete employee')
-        #for i in Edit_Choices:
-            #print ('%s' % i)
-        print('Under development')
+    else:
+        print('Invalid entry!')
         Activity_Choices()
         
 Activity_Choices()
