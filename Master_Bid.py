@@ -98,6 +98,9 @@ def Activity_Choices():
         print ('Under development\n')
         Activity_Choices()
         #Display database of all existing bid lines.
+        #file = open('Bid_Lines.txt', 'r')
+        #...
+        #file.close()
 
     #View current bid assignments.
     elif New_Ask == '3':
