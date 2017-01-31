@@ -72,7 +72,7 @@ def Activity_Choices():
             #file.close()
 
             #List available bid lines and team member's current bid line.
-            #with open('12days.txt', 'r') as fin:
+            #with open('Bid_Lines.txt', 'r') as fin:
                 #for file in fin.readlines():
                 #print(file)
             #file.close()
@@ -123,6 +123,16 @@ def Activity_Choices():
 
         for i in Edit_Actions:
             print ('%s' % i)
+        #Edit_Ask = raw_input('Choose an option. > ')
+        #if Edit_Ask == '1':
+            #...
+        #elif Edit_Ask == '2':
+            #...
+        #elif Edit_Ask == '3':
+            #...
+        #else:
+            #print ('Invalid entry!')
+            #print (Edit_Actions)
         print ('Under development\n')
         Activity_Choices()
 
@@ -133,6 +143,16 @@ def Activity_Choices():
 
         for i in Edit_Choices:
             print ('%s' % i)
+        #Edit_Ask = raw_input('Choose an option. > ')
+        #if Edit_Ask == '1':
+            #...
+        #elif Edit_Ask == '2':
+            #...
+        #elif Edit_Ask == '3':
+            #...
+        #else:
+            #print ('Invalid entry!')
+            #print (Edit_Actions)
         print ('Under development\n')
         Activity_Choices()
 
