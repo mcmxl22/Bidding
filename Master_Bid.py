@@ -118,8 +118,8 @@ def Activity_Choices():
 
     #Edit bid lines.
     elif New_Ask == '4':
-        Edit_Actions = ('1 Change existing bid lines',
-        '2 Add new bid lines', '3 Delete bid lines')
+        Edit_Actions = ('1 Change existing bid line(s)',
+        '2 Add new bid line(s)', '3 Delete bid line(s)')
 
         for i in Edit_Actions:
             print ('%s' % i)
@@ -138,8 +138,8 @@ def Activity_Choices():
 
     #Edit team members.
     elif New_Ask == '5':
-        Edit_Choices = ('1 Change existing team member',
-        '2 Add new team member', '3 Remove team member')
+        Edit_Choices = ('1 Change existing team member(s)',
+        '2 Add new team member(s)', '3 Remove team member(s)')
 
         for i in Edit_Choices:
             print ('%s' % i)
