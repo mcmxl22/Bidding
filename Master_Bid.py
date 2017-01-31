@@ -7,7 +7,7 @@ import sys
 import subprocess
 
 
-#Create a database of all employees with their seniority numbers 
+#Create a database of all team members with their seniority numbers 
 #and current bid line numbers.
 def Create_DataBases():
     Create_Choices = ('1 Create bid database.', '2 Create bid line database.')
@@ -39,12 +39,12 @@ def Create_DataBases():
         print ('Invalid entry!')
         Create_DataBases()
 
-#Create an interface to allow employees to bid on the bid lines starting
+#Create an interface to allow team members to bid on the bid lines starting
 #with the highest seniority.
 def Activity_Choices():
     Actions = ('1 New Bid', '2 View available bid lines',
     '3 View current bid assignments', '4 Edit bid lines',  
-    '5 Edit Employees', '6 Create Database\n')
+    '5 Edit team members', '6 Create Database\n')
     for i in Actions:
         print ('%s' % i)
 
@@ -62,19 +62,28 @@ def Activity_Choices():
         if Ask == 'y':
             print ('Under development\n')
             Activity_Choices()
-            #Have the employee enter their name and seniority number.
+            #Have the team member enter their name and seniority number.
             #Ask = raw_input('Enter your name and seniority numer. > ')
 
-            #Check employee is next in line by seniority number.
+            #Check team member is next in line by seniority number.
+            #if Ask...
+            #file = open('Employee_Status.txt', 'r')
+            #...
+            #file.close()
 
-            #List available bid lines and employee's current bid line.
+            #List available bid lines and team member's current bid line.
+            #file = open('Bid_Lines.txt', 'r')
+            #...
+            #file.close()
 
-            #Have employee enter new bid line choice.
+            #Have team member enter new bid line choice.
             #Ask = raw_input('Enter your bid. > ')
 
-            #If chosen bid line is available assign it to the employee and make it unavailable to others.
+            #If chosen bid line is available assign it to the team member and make it unavailable to others.
 
-            #If chosen bidline is not available have employee choose another one.
+            #If chosen bidline is not available have team member choose another one.
+            #print ('This line is taken. Choose another line.')
+            #Ask
 
         #If no, return to activity list.
         elif Ask == 'n':
@@ -96,10 +105,10 @@ def Activity_Choices():
         cursor = conn.cursor()
         sql = '''select * from bid'''
         results = cursor.execute(sql)
-        all_employees = results.fetchall()
+        All_TeamMembers = results.fetchall()
 
-        for employee in all_employees:
-            print (employee)
+        for TeamMember in All_TeamMembers:
+            print (TeamMember)
         cursor.close()
         Activity_Choices()
 
@@ -113,10 +122,10 @@ def Activity_Choices():
         print ('Under development\n')
         Activity_Choices()
 
-    #Edit Employees.
+    #Edit team members.
     elif New_Ask == '5':
-        Edit_Choices = ('1 Change existing employee',
-        '2 Add new employee', '3 Delete employee')
+        Edit_Choices = ('1 Change existing team member',
+        '2 Add new team member', '3 Remove team member')
 
         for i in Edit_Choices:
             print ('%s' % i)
