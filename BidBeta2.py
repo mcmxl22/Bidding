@@ -3,14 +3,14 @@
 #Python 2.7.12
 
 
-import sqlite3
 import os.path
 
 
 #Create a list of all team members with their seniority numbers 
 #and current bid line numbers.
 def Create_Lists():
-    Create_Choices = ('1 Create team list', '2 Create bid line list', '3 Back\n')
+    Create_Choices = ('1 Create team list', '2 Create bid line list', 
+    '3 Back\n')
     for i in Create_Choices:
         print ('%s' % i)
 
@@ -34,6 +34,10 @@ def Create_Lists():
                 f.write(name)
                 f.close()
                 Create_Lists()
+				
+            else:
+                print ('Invalid entry!')
+                    Create_Lists()
 
         elif os.path.exists('TeamMember_Status.txt') == False:
             print ('File TeamMember_Status.txt does not exist!')
@@ -41,7 +45,10 @@ def Create_Lists():
             Ask = ('y', 'n')
             for i in Ask:
                 print ('%s' % i)
-            Create_File = open('TeamMember_Status.txt', 'w+')
+            f = open('TeamMember_Status.txt', 'w+')
+            f.close()
+            print ('Done!')
+            Create_Lists()
 			
     #Create a list of all existing bid lines.
     elif Create_Ask == '2':
@@ -64,8 +71,15 @@ def Create_Lists():
             Ask = ('y', 'n')
             for i in Ask:
                 print ('%s' % i)
-            Create_File = open('Bid_Lines.txt', 'w+')
+            f = open('Bid_Lines.txt', 'w+')
+            f.close()
+            print ('Done!')
+            Create_Lists()
 			
+        else:
+            print ('Invalid entry!')
+                Create_Lists()
+				
     elif Create_Ask == '3':
         Activity_Choices()
 
@@ -115,7 +129,8 @@ def Activity_Choices():
             #Line_Ask = raw_input('Enter your bid. > ')
             #...
 
-            #If chosen bid line is available assign it to the team member and make it unavailable to others.
+            #If chosen bid line is available assign it to the team member and make it 
+            #unavailable to others.
             #if Line_Ask...:
 
             #If chosen bidline is not available have team member choose another one.
