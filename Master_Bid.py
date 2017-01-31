@@ -63,13 +63,13 @@ def Activity_Choices():
             print ('Under development\n')
             Activity_Choices()
             #Have the team member enter their name and seniority number.
-            #Ask = raw_input('Enter your name and seniority numer. > ')
+            #Name_Ask = raw_input('Enter your name and seniority numer. > ')
 
             #Check team member is next in line by seniority number.
-            #if Ask...
-            #file = open('Employee_Status.txt', 'r')
-            #...
-            #file.close()
+            #if Name_Ask...:
+                #file = open('TeamMember_Status.txt', 'r')
+                #...
+                #file.close()
 
             #List available bid lines and team member's current bid line.
             #with open('Bid_Lines.txt', 'r') as fin:
@@ -78,12 +78,15 @@ def Activity_Choices():
             #file.close()
 
             #Have team member enter new bid line choice.
-            #Ask = raw_input('Enter your bid. > ')
+            #Line_Ask = raw_input('Enter your bid. > ')
+            #...
 
             #If chosen bid line is available assign it to the team member and make it unavailable to others.
+            #if Line_Ask...:
 
             #If chosen bidline is not available have team member choose another one.
-            #print ('This line is taken. Choose another line.')
+            #elif Line_Ask...:
+                #print ('This line is taken. Choose another line.')
             #Ask
 
         #If no, return to activity list.
@@ -159,6 +162,7 @@ def Activity_Choices():
     elif New_Ask == '6':
         print ('Under development\n')	
         Create_DataBases()
+        #...
 
     else:
         print ('Invalid entry!')
