@@ -72,8 +72,9 @@ def Activity_Choices():
             #file.close()
 
             #List available bid lines and team member's current bid line.
-            #file = open('Bid_Lines.txt', 'r')
-            #...
+            #with open('12days.txt', 'r') as fin:
+                #for file in fin.readlines():
+                #print(file)
             #file.close()
 
             #Have team member enter new bid line choice.
@@ -96,15 +97,15 @@ def Activity_Choices():
     #View available bid lines.
     elif New_Ask == '2':
         print ('Under development\n')
+        #Display all existing bid lines.
+        with open('Bid_Lines.txt', 'r') as fin:
+            for file in fin.readlines():
+                print(file)
         Activity_Choices()
-        #Display database of all existing bid lines.
-        #file = open('Bid_Lines.txt', 'r')
-        #...
-        #file.close()
 
     #View current bid assignments.
     elif New_Ask == '3':
-        conn = sqlite3.connect('Bid.db')
+        conn = sqlite3.connect('bid.db')
         cursor = conn.cursor()
         sql = '''select * from bid'''
         results = cursor.execute(sql)
