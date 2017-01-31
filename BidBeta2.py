@@ -11,20 +11,30 @@ import os.path
 #Create a list of all team members with their seniority numbers 
 #and current bid line numbers.
 def Create_Lists():
-    Create_Choices = ('1 Create general list', '2 Create bid line list', '3 Back')
+    Create_Choices = ('1 Create general list', '2 Create bid line list', '3 Back\n')
     for i in Create_Choices:
         print ('%s' % i)
 
-    Create_Ask = raw_input('What do you want to do? > ')
+    Create_Ask = raw_input('What do you want to do?\n> ')
 
-    #Create create team member list
+
+    #Create team member list
     if Create_Ask == '1':
         if os.path.exists('TeamMember_Status.txt') == True:
-            file = open('TeamMember_Status.txt', 'w')
+            f = open('TeamMember_Status.txt', 'w')
             print ('Openning file!')
-            cont = raw_input('Add a team member? ')
-            if cont[0].lower() == 'n':
-            file.close()
+            Ask = ('y', 'n')
+            Add = raw_input('Add a team member? ')
+            for i in Ask:
+                print ('%s' % i)
+            if Add == 'n':
+                f.close()
+                Create_Lists()
+
+            elif Add == 'y':
+                name = raw_input('Enter name and seniority number.\n> ')
+                f.write(name)
+                f.close()
             Create_Lists()
 
         elif os.path.exists('TeamMember_Status.txt') == False:
@@ -38,12 +48,11 @@ def Create_Lists():
     #Create a list of all existing bid lines.
     elif Create_Ask == '2':
         if os.path.exists('Bid_Lines.txt') == True:
-            file = open('Bid_Lines.txt', 'w')
-            file
+            f = open('Bid_Lines.txt', 'w')
             print ('Openning file!')
             cont = raw_input('Add a bid line? ')
             if cont[0].lower() == 'n':
-            file.close()
+                f.close()
             Create_Lists()
 
         elif os.path.exists('Bid_Lines.txt') == False:
@@ -66,7 +75,7 @@ def Create_Lists():
 def Activity_Choices():
     Actions = ('1 New Bid', '2 View available bid lines',
     '3 View current bid assignments', '4 Edit bid lines',  
-    '5 Edit team members', '6 Create Database\n', '7 Exit')
+    '5 Edit team members', '6 Create Lists', '7 Exit\n')
     for i in Actions:
         print ('%s' % i)
 
@@ -74,7 +83,7 @@ def Activity_Choices():
     New_Ask = raw_input('Choose an option. > ')
     if New_Ask == '1':
         print ('Do you want to start a new bid?') 
-        New_Choices = {'y', 'n'}
+        New_Choices = ('y', 'n')
         for i in New_Choices:
             print ('%s' % i)
 
@@ -147,11 +156,11 @@ def Activity_Choices():
             #...
         #elif Edit_Ask == '3':
             #...
-        elif New_Ask == '4':
-            Activity_Choices()
-        else:
-            print ('Invalid entry!')
-            print (Edit_Actions)
+        #if New_Ask == '4':
+            #Activity_Choices()
+        #elif:
+            #print ('Invalid entry!')
+            #print (Edit_Actions)
         print ('Under development\n')
         Activity_Choices()
 
@@ -169,12 +178,12 @@ def Activity_Choices():
             #...
         #elif Edit_Ask == '3':
             #...
-        elif New_Ask == '4':
-            Activity_Choices()
+        #elif Edit_Ask == '4':
+            #Activity_Choices()
 
-        else:
-            print ('Invalid entry!')
-            print (Edit_Actions)
+        #else:
+            #print ('Invalid entry!')
+            #print (Edit_Actions)
         print ('Under development\n')
         Activity_Choices()
 
