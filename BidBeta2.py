@@ -4,14 +4,13 @@
 
 
 import sqlite3
-import sys
 import os.path
 
 
 #Create a list of all team members with their seniority numbers 
 #and current bid line numbers.
 def Create_Lists():
-    Create_Choices = ('1 Create general list', '2 Create bid line list', '3 Back\n')
+    Create_Choices = ('1 Create team list', '2 Create bid line list', '3 Back\n')
     for i in Create_Choices:
         print ('%s' % i)
 
@@ -22,11 +21,10 @@ def Create_Lists():
     if Create_Ask == '1':
         if os.path.exists('TeamMember_Status.txt') == True:
             f = open('TeamMember_Status.txt', 'w')
-            print ('Openning file!')
             Ask = ('y', 'n')
-            Add = raw_input('Add a team member? ')
             for i in Ask:
                 print ('%s' % i)
+            Add = raw_input('Add a team member? ')
             if Add == 'n':
                 f.close()
                 Create_Lists()
@@ -35,7 +33,7 @@ def Create_Lists():
                 name = raw_input('Enter name and seniority number.\n> ')
                 f.write(name)
                 f.close()
-            Create_Lists()
+                Create_Lists()
 
         elif os.path.exists('TeamMember_Status.txt') == False:
             print ('File TeamMember_Status.txt does not exist!')
@@ -49,9 +47,14 @@ def Create_Lists():
     elif Create_Ask == '2':
         if os.path.exists('Bid_Lines.txt') == True:
             f = open('Bid_Lines.txt', 'w')
-            print ('Openning file!')
-            cont = raw_input('Add a bid line? ')
-            if cont[0].lower() == 'n':
+            Add = raw_input('Add a bid line? ')
+            if Add == 'n':
+                f.close()
+                Create_Lists()
+
+            elif Add == 'y':
+                name = raw_input('Enter bid line.\n> ')
+                f.write(name)
                 f.close()
             Create_Lists()
 
