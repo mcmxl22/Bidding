@@ -6,7 +6,7 @@
 import os.path
 
 
-#Create a database of all employees with their seniority numbers
+#Create lists of all bid lines, and all employees with their seniority numbers
 #and current bid line numbers.
 class Data(object):
 
