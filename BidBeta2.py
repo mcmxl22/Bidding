@@ -6,7 +6,8 @@
 import os.path
 
 
-#Create a database of all employees with their seniority numbers and current bid line numbers.
+#Create a database of all employees with their seniority numbers
+#and current bid line numbers.
 class Data(object):
 
     def Create_Lists(self):
@@ -14,6 +15,7 @@ class Data(object):
         d = Data()
         Create_Choices = ('1 Create team list', '2 Create bid line list', 
         '3 Back\n')
+		
         for i in Create_Choices:
             print ('%s' % i)
 
@@ -56,7 +58,10 @@ class Data(object):
         elif Create_Ask == '2':
             if os.path.exists('Bid_Lines.txt') == True:
                 f = open('Bid_Lines.txt', 'w')
-                Add = raw_input('Add a bid line? ')
+                Ask = ('y', 'n')
+                for i in Ask:
+                    print ('%s' % i)
+                Add = raw_input('Add a bid line?\n> ')
                 if Add == 'n':
                     f.close()
                     d.Create_Lists()
@@ -101,7 +106,7 @@ class Choices(object):
             print ('%s' % i)
 
         #New bid   
-        New_Ask = raw_input('Choose an option. > ')
+        New_Ask = raw_input('Choose an option.\n> ')
         if New_Ask == '1':
             print ('Do you want to start a new bid?') 
             New_Choices = ('y', 'n')
@@ -119,9 +124,9 @@ class Choices(object):
 
                 #Check team member is next in line by seniority number.
                 #if Name_Ask...:
-                    file = open('TeamMember_Status.txt', 'r')
+                    #file = open('TeamMember_Status.txt', 'r')
                     #...
-                    file.close()
+                    #file.close()
 
                 #List available bid lines and team member's current bid line.
                 print ('Available bild line(s).')
@@ -131,7 +136,7 @@ class Choices(object):
                 file.close()
 
                 #Have team member enter new bid line choice.
-                Line_Ask = raw_input('Enter your bid. > ')
+                Line_Ask = raw_input('Enter your bid.\n> ')
 
                 #If chosen bid line is available assign it to the team member and make it 
                 #unavailable to others.
@@ -140,7 +145,9 @@ class Choices(object):
                 #If chosen bidline is not available have team member choose another one.
                 #elif Line_Ask...:
                     #print ('This line is taken. Choose another line.')
-                #Ask
+					
+                #else:
+                    #print ('Invalid entry!')
 
             #If no, return to activity list.
             elif Ask == 'n':
@@ -152,8 +159,8 @@ class Choices(object):
 
         #View available bid lines.
         elif New_Ask == '2':
-            print ('Under development\n')
             #Display all existing bid lines.
+            print ('file is empty')
             with open('Bid_Lines.txt', 'r') as fin:
                 for file in fin.readlines():
                     print(file)
@@ -161,27 +168,33 @@ class Choices(object):
 
         #View current bid assignments.
         elif New_Ask == '3':
-            print ('Under development\n')
+            print ('file is empty')
+            with open('TeamMember_Status.txt', 'r') as fin:
+                for file in fin.readlines():
+                    print(file)
             c.Activity_Choices()
 
         #Edit bid lines.
         elif New_Ask == '4':
+		
             Edit_Actions = ('1 Change existing bid line(s)',
             '2 Add new bid line(s)', '3 Delete bid line(s)', '4 Back')
 
             for i in Edit_Actions:
                 print ('%s' % i)
-            Edit_Ask = raw_input('Choose an option. > ')
+            Edit_Ask = raw_input('Choose an option.\n> ')
             if Edit_Ask == '1':
                 f = open('Bid_Lines.txt', 'w')
-                f.write()
+                #edit = raw_input('...\n>')
+                #f.write(edit)
                 #...
                 f.close()
                 print ('Done!')
 				
             elif Edit_Ask == '2':
                 f = open('Bid_Lines.txt', 'w')
-                f.write()
+                #edit = raw_input('...\n>')
+                #f.write(edit)
                 #...
                 f.close()
                 print ('Done!')
@@ -189,7 +202,8 @@ class Choices(object):
 				
             elif Edit_Ask == '3':
                 f = open('Bid_Lines.txt', 'w')
-                f.write()
+                #edit = raw_input('...\n>')
+                #f.write(edit)
                 #...
                 f.close()
                 print ('Done!')
@@ -210,25 +224,31 @@ class Choices(object):
 
             for i in Edit_Choices:
                 print ('%s' % i)
-            #Edit_Ask = raw_input('Choose an option. > ')
+				
+            Edit_Ask = raw_input('Choose an option.\n> ')
+			
             if Edit_Ask == '1':
                 f = open('TeamMember_Status.txt', 'w')
-                f.write()
-                #...
-                f.close()
-                print ('Done!')
-				
-            #elif Edit_Ask == '2':
-                f = open('TeamMember_Status.txt', 'w')
-                f.write()
+                #edit = raw_input('...\n>')
+                #f.write(edit)
                 #...
                 f.close()
                 print ('Done!')
                 c.Activity_Choices()
 				
-            #elif Edit_Ask == '3':
+            elif Edit_Ask == '2':
                 f = open('TeamMember_Status.txt', 'w')
-                f.write()
+                #edit = raw_input('...\n>')
+                #f.write(edit)
+                #...
+                f.close()
+                print ('Done!')
+                c.Activity_Choices()
+				
+            elif Edit_Ask == '3':
+                f = open('TeamMember_Status.txt', 'w')
+                #edit = raw_input('...\n>')
+                #f.write(edit)
                 #...
                 f.close()
                 print ('Done!')
@@ -254,6 +274,7 @@ class Choices(object):
             c.Activity_Choices()
 
 class main(object):
+
     def __init__(self):
         c = Choices()
         c.Activity_Choices()  
