@@ -19,7 +19,7 @@ class Data(object):
 
         Create_Ask = raw_input('What do you want to do?\n> ')
 
-        #Create team member list
+        #Create team list
         if Create_Ask == '1':
             if os.path.exists('TeamMember_Status.txt') == True:
                 f = open('TeamMember_Status.txt', 'w')
@@ -113,17 +113,18 @@ class Choices(object):
             #If yes, proceed.
             if Ask == 'y':
                 print ('Under development\n')
-                Activity_Choices()
+                c.Activity_Choices()
                 #Have the team member enter their name and seniority number.
                 Name_Ask = raw_input('Enter your name and seniority numer. > ')
 
                 #Check team member is next in line by seniority number.
                 #if Name_Ask...:
-                    #file = open('TeamMember_Status.txt', 'r')
+                    file = open('TeamMember_Status.txt', 'r')
                     #...
-                    #file.close()
+                    file.close()
 
                 #List available bid lines and team member's current bid line.
+                print ('Available bild line(s).')
                 with open('Bid_Lines.txt', 'r') as fin:
                     for file in fin.readlines():
                         print(file)
@@ -131,7 +132,6 @@ class Choices(object):
 
                 #Have team member enter new bid line choice.
                 Line_Ask = raw_input('Enter your bid. > ')
-                #...
 
                 #If chosen bid line is available assign it to the team member and make it 
                 #unavailable to others.
@@ -171,24 +171,37 @@ class Choices(object):
 
             for i in Edit_Actions:
                 print ('%s' % i)
-            #Edit_Ask = raw_input('Choose an option. > ')
+            Edit_Ask = raw_input('Choose an option. > ')
             if Edit_Ask == '1':
                 f = open('Bid_Lines.txt', 'w')
                 f.write()
                 #...
                 f.close()
                 print ('Done!')
-            #elif Edit_Ask == '2':
+				
+            elif Edit_Ask == '2':
+                f = open('Bid_Lines.txt', 'w')
+                f.write()
                 #...
-            #elif Edit_Ask == '3':
+                f.close()
+                print ('Done!')
+                c.Activity_Choices()
+				
+            elif Edit_Ask == '3':
+                f = open('Bid_Lines.txt', 'w')
+                f.write()
                 #...
-            #if New_Ask == '4':
-                #Activity_Choices()
+                f.close()
+                print ('Done!')
+                c.Activity_Choices()
+				
+            if New_Ask == '4':
+                c.Activity_Choices()
+				
             else:
                 print ('Invalid entry!')
                 print (Edit_Actions)
             print ('Under development\n')
-            Activity_Choices()
 
         #Edit team members.
         elif New_Ask == '5':
@@ -204,30 +217,41 @@ class Choices(object):
                 #...
                 f.close()
                 print ('Done!')
+				
             #elif Edit_Ask == '2':
+                f = open('TeamMember_Status.txt', 'w')
+                f.write()
                 #...
+                f.close()
+                print ('Done!')
+                c.Activity_Choices()
+				
             #elif Edit_Ask == '3':
+                f = open('TeamMember_Status.txt', 'w')
+                f.write()
                 #...
-            #elif Edit_Ask == '4':
-                #Activity_Choices()
+                f.close()
+                print ('Done!')
+                c.Activity_Choices()
+				
+            elif Edit_Ask == '4':
+                c.Activity_Choices()
 
-            #else:
-                #print ('Invalid entry!')
-                #print (Edit_Actions)
+            else:
+                print ('Invalid entry!')
+                print (Edit_Actions)
+                c.Activity_Choices()
             print ('Under development\n')
-            c.Activity_Choices()
 
-        elif New_Ask == '6':
-            print ('Under development\n')	
+        elif New_Ask == '6':	
             d.Create_Lists()
-            #...
     
         elif New_Ask == '7':
             quit()
 
         else:
             print ('Invalid entry!')
-            Activity_Choices()
+            c.Activity_Choices()
 
 class main(object):
     def __init__(self):
