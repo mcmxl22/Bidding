@@ -23,12 +23,16 @@ class Data(object):
 
         # Create team list
         if Create_Ask == '1':
-            if os.path.exists('TeamMember_Status.txt') == True:
-                f = open('TeamMember_Status.txt', 'w')
+            Create_Files = raw_input('Enter file name.\n> ')
+            if os.path.exists(Create_Files) == True:
+                f = open(Create_Files, 'w')
+				
                 Ask = ('y', 'n')
                 for i in Ask:
                     print ('%s' % i)
+
                 Add = raw_input('Add a team member? ')
+
                 if Add == 'n':
                     f.close()
                     d.Create_Lists()
@@ -43,25 +47,25 @@ class Data(object):
                     print ('Invalid entry!')
                     d.Create_Lists()
 
-            elif os.path.exists('TeamMember_Status.txt') == False:
-                print ('File TeamMember_Status.txt does not exist!')
-                print ('Do you want to create the file?')
-                Ask = ('y', 'n')
-                for i in Ask:
-                    print ('%s' % i)
-                f = open('TeamMember_Status.txt', 'w+')
+            elif os.path.exists(Create_Files) == False:
+                print ('Creating ' + Create_Files + '.txt\n')
+                f = open(Create_Files, 'w+')
                 f.close()
-                print ('Done!')
+                print ('Done!\n')
                 d.Create_Lists()
 
         # Create a list of all existing bid lines.
         elif Create_Ask == '2':
-            if os.path.exists('Bid_Lines.txt') == True:
-                f = open('Bid_Lines.txt', 'w')
+            Create_Files = raw_input('Enter file name.\n> ')
+            if os.path.exists(Create_Files) == True:
+                f = open(Create_Files, 'w')
+				
                 Ask = ('y', 'n')
                 for i in Ask:
                     print ('%s' % i)
+					
                 Add = raw_input('Add a bid line?\n> ')
+				
                 if Add == 'n':
                     f.close()
                     d.Create_Lists()
@@ -72,15 +76,11 @@ class Data(object):
                     f.close()
                 d.Create_Lists()
 
-            elif os.path.exists('Bid_Lines.txt') == False:
-                print ('File Bid_Lines.txt does not exist!')
-                print ('Do you want to create the file?')
-                Ask = ('y', 'n')
-                for i in Ask:
-                    print ('%s' % i)
-                f = open('Bid_Lines.txt', 'w+')
+            elif os.path.exists(Create_Files) == False:
+                print ('Creating ' + Create_Files + '.txt\n')
+                f = open(Create_Files, 'w+')
                 f.close()
-                print ('Done!')
+                print ('Done!\n')
                 d.Create_Lists()
 
             else:
@@ -281,4 +281,5 @@ class main(object):
         c = Choices()
         c.Activity_Choices()
 
-main()
+if __name__ == "__main__":
+    main()
