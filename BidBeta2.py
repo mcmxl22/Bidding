@@ -1,13 +1,13 @@
 # By Micah M. 2017
-# Bid Version 1.2 Beta
+# Bid Version 1.2 
 # Python 2.7.12
 
 
 import os.path
+import csv
 
-
+# create file.
 def Files():
-    # create file.
     filename = raw_input('Enter file name.\n> ')
 		
     if os.path.exists(filename) == True:		
@@ -49,8 +49,9 @@ class Data(object):
                 d.Create_Lists()
 
             elif Add == 'y':
-                #name = raw_input('Enter name and seniority number.\n> ')
-                print ('Under development\n')
+                name = raw_input('\nEnter name and seniority number.\n> ')
+                print (', '.join(name.split()))
+                print ('\nUnder development\n')
                 d.Create_Lists()
 
             else:
@@ -70,7 +71,7 @@ class Data(object):
                 d.Create_Lists()
 
             elif Add == 'y':
-                #name = raw_input('Enter bid line.\n> '
+                # name = raw_input('Enter bid line.\n> '
                 print ('Under development\n')
                 d.Create_Lists()
 
@@ -92,83 +93,48 @@ class Choices(object):
         c = Choices()
         d = Data()
         Entry = ('Invalid entry!')
-        Ask = ('y', 'n')
+        Answers = ('y', 'n')
         Actions = ('1 New Bid', '2 View available bid lines',
                    '3 View current bid assignments', '4 Edit bid lines',
                    '5 Edit team members', '6 Create Lists', '7 Exit\n')
         for i in Actions:
             print ('%s' % i)
 
-        # New bid
         New_Ask = raw_input('Choose an option.\n> ')
+
         if New_Ask == '1':
-            print ('Do you want to start a new bid?\n> ')
-			
-            for i in Ask:
+
+            for i in Answers:
                 print ('%s' % i)
 
-            # If yes, proceed.
+            Ask = raw_input('\nDo you want to start a new bid?\n> ')
+
             if Ask == 'y':
-                print ('Under development\n')
-                c.Activity_Choices()
-                # Have the team member enter their name and seniority number.
-                Name_Ask = raw_input('Enter your name and seniority numer. > ')
+                bdline = raw_input('Enter your name.\n> ')
 
-                # Check team member is next in line by seniority number.
-                # if Name_Ask...:
-                #Files = raw_input('Enter file name.\n> ')
-                #file = open(Files, 'r')
-                #...
-                # file.close()
-
-                # List available bid lines and team member's current bid line.
-                Files = raw_input('Enter file name.\n> ')
-				
-                print ('Available bild line(s).')
-                with open(Files, 'r') as fin:
-                    for file in fin.readlines():
-                        print(file)
-                file.close()
-
-                # Have team member enter new bid line choice.
-                Line_Ask = raw_input('Enter your bid.\n> ')
-
-                # If chosen bid line is available assign it to the team member and make it
-                # unavailable to others.
-                # if Line_Ask...:
-
-                # If chosen bidline is not available have team member choose another one.
-                # elif Line_Ask...:
-                #print ('This line is taken. Choose another line.')
-
-                # else:
-                #print ('Invalid entry!')
-
-            # If no, return to activity list.
-            elif Ask == 'n':
-                c.Activity_Choices()
-
-            else:
-                print ('Invalid entry!')
-                print (New_Choices)
+                if bdline in open('BidLines.csv').read():
+                    print ('True')
+                    print ('Available bild line(s).\n')
+                    with open('BidLines.csv', 'r') as fin:
+                        for i in fin.readlines():
+                            print(i)
+                            fin.close()
 
         # View available bid lines.
         elif New_Ask == '2':
             # Display all existing bid lines.
-            Files = raw_input('Enter file name.\n> ')
-            with open(Files, 'r') as fin:
+            lines = raw_input('Enter file name.\n> ')
+            with open(lines, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
-                    print ('file is empty')
             c.Activity_Choices()
 
         # View current bid assignments.
         elif New_Ask == '3':
-            Files = raw_input('Enter file name.\n> ')
-            with open(Files, 'r') as fin:
+            assignment = raw_input('Enter file name.\n> ')
+            with open(assignment, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
-                    print ('file is empty')
             c.Activity_Choices()
 
         # Edit bid lines.
@@ -182,7 +148,7 @@ class Choices(object):
             Edit_Ask = raw_input('Choose an option.\n> ')
 			
             if Edit_Ask == '1':
-                f = open('Bid_Lines.txt', 'w')
+                Files()
                 #edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
@@ -190,7 +156,7 @@ class Choices(object):
                 print ('Done!')
 
             elif Edit_Ask == '2':
-                f = open('Bid_Lines.txt', 'w')
+                Files()
                 #edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
@@ -199,7 +165,7 @@ class Choices(object):
                 c.Activity_Choices()
 
             elif Edit_Ask == '3':
-                f = open('Bid_Lines.txt', 'w')
+                Files()
                 #edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
