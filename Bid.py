@@ -1,5 +1,5 @@
 # By Micah M. 2017
-# Bid Version 1.2 
+# Bid Version 1
 # Python 2.7.13
 
 
@@ -9,17 +9,17 @@ import csv
 # create file.
 def Files():
     filename = raw_input('Enter file name.\n> ')
-		
+
     if os.path.exists(filename) == True:		
         f = open(filename, 'w')
         f.close()
-		
+
     elif os.path.exists(filename) == False:
-        print ('Creating ' + filename + '.txt\n')
+        print ('{} {}{}'.format('Creating', filename, '.txt\n'))
         f = open(filename, 'w+')
         f.close()
         print ('Done!\n')
-			
+
 # Create lists of all bid lines, and all team members with their seniority numbers
 # and current bid line numbers.
 class Data(object):
@@ -39,7 +39,7 @@ class Data(object):
         # Create team list
         if Create_Ask == '1':
             Files()
-				
+
             for i in Ask:
                 print ('%s' % i)
 
@@ -61,12 +61,12 @@ class Data(object):
         # Create a list of all existing bid lines.
         elif Create_Ask == '2':
             Files()
-				
+
             for i in Ask:
                 print ('%s' % i)
-					
+
             Add = raw_input('Add a bid line?\n> ')
-				
+
             if Add == 'n':
                 d.Create_Lists()
 
@@ -85,7 +85,6 @@ class Data(object):
         else:
             print (Entry)
             d.Create_Lists()
-
 
 class Choices(object):
 
@@ -144,12 +143,12 @@ class Choices(object):
                             '2 Add new bid line(s)', '3 Delete bid line(s)', '4 Back')
             for i in Edit_Actions:
                 print ('%s' % i)
-				
+
             Edit_Ask = raw_input('Choose an option.\n> ')
-			
+
             if Edit_Ask == '1':
                 Files()
-                #edit = raw_input('...\n>')
+                # edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
                 f.close()
@@ -157,7 +156,7 @@ class Choices(object):
 
             elif Edit_Ask == '2':
                 Files()
-                #edit = raw_input('...\n>')
+                # edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
                 f.close()
@@ -166,7 +165,7 @@ class Choices(object):
 
             elif Edit_Ask == '3':
                 Files()
-                #edit = raw_input('...\n>')
+                # edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
                 f.close()
@@ -192,7 +191,7 @@ class Choices(object):
 
             if Edit_Ask == '1':
                 Files()
-                #edit = raw_input('...\n>')
+                # edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
                 print ('Done!')
@@ -200,7 +199,7 @@ class Choices(object):
 
             elif Edit_Ask == '2':
                 Files()
-                #edit = raw_input('...\n>')
+                # edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
                 print ('Done!')
@@ -208,7 +207,7 @@ class Choices(object):
 
             elif Edit_Ask == '3':
                 Files()
-                #edit = raw_input('...\n>')
+                # edit = raw_input('...\n>')
                 # f.write(edit)
                 #...
                 print ('Done!')
@@ -232,7 +231,6 @@ class Choices(object):
         else:
             print (Entry)
             c.Activity_Choices()
-
 
 class main(object):
 
