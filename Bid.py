@@ -32,8 +32,9 @@ class Data(object):
         Ask = ('y', 'n')
         Create_Choices = ('1 Create team list', '2 Create bid line list',
                           '3 Back\n')
-        for i in Create_Choices:
-            print ('%s' % i)
+
+        Create_List = ' \n'.join(Create_Choices)
+        print(Create_List)
 
         Create_Ask = raw_input('What do you want to do?\n> ')
 
@@ -41,8 +42,8 @@ class Data(object):
         if Create_Ask == '1':
             Files()
 
-            for i in Ask:
-                print ('%s' % i)
+            Ask_choice = ' \n'.join(Ask)
+            print (Ask_choice)
 
             Add = raw_input('Add a team member? ')
 
@@ -63,8 +64,8 @@ class Data(object):
         elif Create_Ask == '2':
             Files()
 
-            for i in Ask:
-                print ('%s' % i)
+            Ask_choice = ' \n'.join(Ask)
+            print (Ask_choice)
 
             Add = raw_input('Add a bid line?\n> ')
 
@@ -93,19 +94,19 @@ class Choices(object):
         c = Choices()
         d = Data()
         Entry = ('Invalid entry!')
-        Answers = ('y', 'n')
+        Ask = ('y', 'n')
         Actions = ('1 New Bid', '2 View available bid lines',
                    '3 View current bid assignments', '4 Edit bid lines',
                    '5 Edit team members', '6 Create Lists', '7 Exit\n')
-        for i in Actions:
-            print ('%s' % i)
+        Actions_List = ' \n'.join(Actions)
+        print (Actions_List)
 
         New_Ask = raw_input('Choose an option.\n> ')
 
         if New_Ask == '1':
 
-            for i in Answers:
-                print ('%s' % i)
+            Ask_choice = ' \n'.join(Ask)
+            print (Ask_choice)
 
             Ask = raw_input('\nDo you want to start a new bid?\n> ')
 
@@ -113,7 +114,6 @@ class Choices(object):
                 bdline = raw_input('Enter your name.\n> ')
 
                 if bdline in open('BidLines.csv').read():
-                    print ('True')
                     print ('Available bild line(s).\n')
                     with open('BidLines.csv', 'r') as fin:
                         for i in fin.readlines():
@@ -142,8 +142,9 @@ class Choices(object):
 
             Edit_Actions = ('1 Change existing bid line(s)',
                             '2 Add new bid line(s)', '3 Delete bid line(s)', '4 Back')
-            for i in Edit_Actions:
-                print ('%s' % i)
+
+            Edit_choices = ' \n'.join(Edit_Actions)
+            print (Edit_choices)
 
             Edit_Ask = raw_input('Choose an option.\n> ')
 
@@ -185,8 +186,9 @@ class Choices(object):
         elif New_Ask == '5':
             Edit_Choices = ('1 Change existing team member(s)',
                             '2 Add new team member(s)', '3 Remove team member(s)', '4 Back')
-            for i in Edit_Choices:
-                print ('%s' % i)
+							
+            Edit_choices = ' \n'.join(Edit_Actions)
+            print (Edit_choices)
 
             Edit_Ask = raw_input('Choose an option.\n> ')
 
