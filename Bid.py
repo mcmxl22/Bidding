@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # By Micah M. 2017
 # Bid Version 1
 # Python 2.7.13
