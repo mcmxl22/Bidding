@@ -11,11 +11,11 @@ import csv
 def Files():
     filename = raw_input('Enter file name.\n> ')
 
-    if os.path.exists(filename) == True:		
+    if os.path.exists(filename):	
         f = open(filename, 'w')
         f.close()
 
-    elif os.path.exists(filename) == False:
+    elif not os.path.exists(filename):
         print ('{} {}{}'.format('Creating', filename, '.txt\n'))
         f = open(filename, 'w+')
         f.close()
@@ -52,8 +52,7 @@ class Data(object):
 
             elif Add == 'y':
                 name = raw_input('\nEnter name and seniority number.\n> ')
-                print (', '.join(name.split()))
-                print ('\nUnder development\n')
+                print (', '.join(name.split())), ('\nUnder development\n')
                 d.Create_Lists()
 
             else:
@@ -220,7 +219,7 @@ class Choices(object):
                 c.Activity_Choices()
 
             else:
-                print (Entry)
+                print (Entry) 
                 print (Edit_Actions)
                 c.Activity_Choices()
             print ('Under development\n')
