@@ -3,16 +3,17 @@
 # Bid Version 1
 # Python 2.7.13
 
-
 import os.path
 import csv
 
-# create file.
+# Create file(s).
+
+
 def Files():
     filename = raw_input('Enter file name.\n> ')
 
-    if os.path.exists(filename):	
-        f = open(filename, 'w')
+    if os.path.exists(filename):
+        f = open(filename, 'a')
         f.close()
 
     elif not os.path.exists(filename):
@@ -21,8 +22,9 @@ def Files():
         f.close()
         print ('Done!\n')
 
-# Create lists of all bid lines, and all team members with their seniority numbers
-# and current bid line numbers.
+
+# Create lists of all bid lines, and all team members with their
+# seniority numbers and current bid line numbers.
 class Data(object):
 
     def Create_Lists(self):
@@ -34,7 +36,7 @@ class Data(object):
                           '3 Back\n')
 
         Create_List = ' \n'.join(Create_Choices)
-        print(Create_List)
+        print (Create_List)
 
         Create_Ask = raw_input('What do you want to do?\n> ')
 
@@ -47,10 +49,10 @@ class Data(object):
 
             Add = raw_input('Add a team member? ')
 
-            if Add == 'n':
+            if Add.lower() == 'n':
                 d.Create_Lists()
 
-            elif Add == 'y':
+            elif Add.lower() == 'y':
                 name = raw_input('\nEnter name and seniority number.\n> ')
                 print (', '.join(name.split())), ('\nUnder development\n')
                 d.Create_Lists()
@@ -68,11 +70,10 @@ class Data(object):
 
             Add = raw_input('Add a bid line?\n> ')
 
-            if Add == 'n':
+            if Add.lower() == 'n':
                 d.Create_Lists()
 
-            elif Add == 'y':
-                # name = raw_input('Enter bid line.\n> '
+            elif Add.lower() == 'y':
                 print ('Under development\n')
                 d.Create_Lists()
 
@@ -84,8 +85,9 @@ class Data(object):
             c.Activity_Choices()
 
         else:
-            print (Entry)
+            print(Entry)
             d.Create_Lists()
+
 
 class Choices(object):
 
@@ -98,7 +100,7 @@ class Choices(object):
                    '3 View current bid assignments', '4 Edit bid lines',
                    '5 Edit team members', '6 Create Lists', '7 Exit\n')
         Actions_List = ' \n'.join(Actions)
-        print (Actions_List)
+        print(Actions_List)
 
         New_Ask = raw_input('Choose an option.\n> ')
 
@@ -109,11 +111,11 @@ class Choices(object):
 
             Ask = raw_input('\nDo you want to start a new bid?\n> ')
 
-            if Ask == 'y':
+            if Ask.lower() == 'y':
                 bdline = raw_input('Enter your name.\n> ')
 
                 if bdline in open('BidLines.csv').read():
-                    print ('Available bild line(s).\n')
+                    print('Available bild line(s).\n')
                     with open('BidLines.csv', 'r') as fin:
                         for i in fin.readlines():
                             print(i)
@@ -121,7 +123,6 @@ class Choices(object):
 
         # View available bid lines.
         elif New_Ask == '2':
-            # Display all existing bid lines.
             lines = raw_input('Enter file name.\n> ')
             with open(lines, 'r') as fin:
                 for i in fin.readlines():
@@ -150,26 +151,20 @@ class Choices(object):
             if Edit_Ask == '1':
                 Files()
                 # edit = raw_input('...\n>')
-                # f.write(edit)
                 #...
-                f.close()
                 print ('Done!')
 
             elif Edit_Ask == '2':
                 Files()
                 # edit = raw_input('...\n>')
-                # f.write(edit)
                 #...
-                f.close()
                 print ('Done!')
                 c.Activity_Choices()
 
             elif Edit_Ask == '3':
                 Files()
                 # edit = raw_input('...\n>')
-                # f.write(edit)
                 #...
-                f.close()
                 print ('Done!')
                 c.Activity_Choices()
 
@@ -179,38 +174,34 @@ class Choices(object):
             else:
                 print (Entry)
                 print (Edit_Actions)
-            print ('Under development\n')
 
         # Edit team members.
         elif New_Ask == '5':
             Edit_Choices = ('1 Change existing team member(s)',
                             '2 Add new team member(s)', '3 Remove team member(s)', '4 Back')
-							
-            Edit_choices = ' \n'.join(Edit_Actions)
-            print (Edit_choices)
+
+            Choices = ' \n'.join(Edit_Choices)
+            print (Choices)
 
             Edit_Ask = raw_input('Choose an option.\n> ')
 
             if Edit_Ask == '1':
                 Files()
-                # edit = raw_input('...\n>')
-                # f.write(edit)
+                # edit = raw_input()
                 #...
                 print ('Done!')
                 c.Activity_Choices()
 
             elif Edit_Ask == '2':
                 Files()
-                # edit = raw_input('...\n>')
-                # f.write(edit)
+                # edit = raw_input()
                 #...
                 print ('Done!')
                 c.Activity_Choices()
 
             elif Edit_Ask == '3':
                 Files()
-                # edit = raw_input('...\n>')
-                # f.write(edit)
+                # edit = raw_input()
                 #...
                 print ('Done!')
                 c.Activity_Choices()
@@ -219,10 +210,9 @@ class Choices(object):
                 c.Activity_Choices()
 
             else:
-                print (Entry) 
+                print (Entry)
                 print (Edit_Actions)
                 c.Activity_Choices()
-            print ('Under development\n')
 
         elif New_Ask == '6':
             d.Create_Lists()
@@ -233,6 +223,7 @@ class Choices(object):
         else:
             print (Entry)
             c.Activity_Choices()
+
 
 class main(object):
 
