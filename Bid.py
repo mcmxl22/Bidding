@@ -1,17 +1,17 @@
 #! /usr/bin/env python
-# By Micah M. 2017
-# Bid Version 1
+# By Micah M. 2018
+# Bid Version 1.0.1
 # Python 2.7.13
+
 
 import os.path
 import csv
 
+
 # Create file(s).
-
-
 def Files():
-    filename = raw_input('Enter file name.\n> ')
 
+    filename = raw_input('Enter file name.\n> ')
     if os.path.exists(filename):
         f = open(filename, 'a')
         f.close()
