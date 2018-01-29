@@ -1,3 +1,9 @@
+#! /usr/bin/env python
+# By Micah M. 2018
+# bidding version 1.01
+# Python 3.6.4
+
+
 import sqlite3
 
 
@@ -8,7 +14,7 @@ who = {1: 'Micah C McConnaughey', 2: 'name2', 3: 'name3'}
 
 def bid():
 
-    ask = raw_input('Name? ')
+    ask = input('Name? ')
 
     if ask == who[1]:
         results = cursor.execute("SELECT * FROM Bid WHERE names = (%s, %s, %s)"
