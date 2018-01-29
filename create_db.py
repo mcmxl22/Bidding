@@ -1,3 +1,9 @@
+#! /usr/bin/env python
+# By Micah M. 2018
+# create_db version 1.01
+# Python 3.6.4
+
+
 import sqlite3
 
 
