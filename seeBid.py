@@ -15,7 +15,7 @@ def seeBid():
     all_employees = results.fetchall()
 
     for employee in all_employees:
-        print employee
+        print(employee)
 
 if __name__ == "__main__":
     seeBid()
