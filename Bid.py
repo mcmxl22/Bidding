@@ -95,6 +95,9 @@ class Data(object):
 
 
 class Choices(object):
+    
+    def __init__(self):
+        pass
 
     def activityChoices(self):
         choice = Choices()
