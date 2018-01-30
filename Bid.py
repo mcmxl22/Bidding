@@ -13,7 +13,7 @@ def Files():
 
     filename = input('Enter file name.\n> ')
     close = f.close()
-	
+
     if os.path.exists(filename):
         f = open(filename, 'a')
         close
@@ -29,9 +29,9 @@ def Files():
 # seniority numbers and current bid line numbers.
 class Data(object):
 
-    def __init__(self, createChoices, createList)
+    def __init__(self, createChoices, createList):
         self.createChoices = createChoices
-		self.createList = createList
+        self.createList = createList
 
     def createLists(self):
 
@@ -40,7 +40,7 @@ class Data(object):
         Entry = ('Invalid entry!')
         Ask = ('y', 'n')
         createChoices = ('1 Create team list', '2 Create bid line list',
-                          '3 Back\n')
+                         '3 Back\n')
 
         createList = ' \n'.join(createChoices)
         print(createlist)
@@ -64,7 +64,7 @@ class Data(object):
                 data.Create_Lists()
 
             else:
-                print (Entry)
+                print(Entry)
                 data.Create_Lists()
 
         # Create a list of all existing bid lines.
@@ -93,6 +93,7 @@ class Data(object):
         else:
             print(Entry)
             data.Create_Lists()
+
 
 class Choices(object):
 
@@ -125,8 +126,8 @@ class Choices(object):
                         for i in fin.readlines():
                             print(i)
                             fin.close()
-							
-            else:   
+
+            else:
                 activityChoices()
 
         # View available bid lines.
@@ -148,8 +149,9 @@ class Choices(object):
         # Edit bid lines.
         elif New_Ask == '4':
 
-            Edit_Actions = ('1 Change existing bid line(s)',
-                            '2 Add new bid line(s)', '3 Delete bid line(s)', '4 Back')
+            Edit_Actions = ('1 Change existing bidlines',
+                            '2 Add new bid line(s)',
+                            '3 Delete bid line(s)', '4 Back')
 
             Edit_choices = ' \n'.join(Edit_Actions)
             print(Edit_choices)
@@ -183,7 +185,8 @@ class Choices(object):
         # Edit team members.
         elif New_Ask == '5':
             Edit_Choices = ('1 Change existing team member(s)',
-                            '2 Add new team member(s)', '3 Remove team member(s)', '4 Back')
+                            '2 Add new team member(s)',
+                            '3 Remove team member(s)', '4 Back')
 
             print(Edit_Choices)
 
@@ -192,12 +195,12 @@ class Choices(object):
             if editAsk == '1':
                 Files()
                 # edit = input()
-                print ('Done!')
+                print('Done!')
                 choice.activityChoices()
 
             elif editAsk == '2':
                 Files()
-                #edit = input()
+                # edit = input()
                 print('Done!')
                 choice.activityChoices()
 
@@ -225,11 +228,13 @@ class Choices(object):
             print(Entry)
             choice.activityChoices()
 
+
 class main(object):
 
     def __init__(self):
         choices = Choices()
         choices.activityChoices()
+
 
 if __name__ == "__main__":
     main()
