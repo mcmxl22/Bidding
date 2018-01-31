@@ -6,18 +6,18 @@
 
 import os.path
 import csv
-
+import sqlite3
+import sys
+import subprocess
 
 # Create file(s).
 def Files():
 
     filename = input('Enter file name. ')
     close = f.close()
-
     if os.path.exists(filename):
         f = open(filename, 'a')
         close
-
     elif not os.path.exists(filename):
         print('{} {}{}'.format('Creating', filename, '.txt'))
         f = open(filename, 'w+')
@@ -27,75 +27,85 @@ def Files():
 
 # Create lists of all bid lines, and all team members with their
 # seniority numbers and current bid line numbers.
-class Data(object):
+class teamInfo(object):
 
-    def __init__(self, createChoices, createList):
-        self.createChoices = createChoices
-        self.createList = createList
-
-    def createLists(self):
-
-        choices = Choices()
-        data = Data()
-        invalidEntry = ('Invalid entry!')
+    def __init__(self):
         Ask = ('y', 'n')
-        createChoices = ('1 Create team list', '2 Create bid line list',
-                         '3 Back\n')
-
+        createChoices = ('1 Create team list', '2 Exit\n')
         createList = ' \n'.join(createChoices)
-        print(createlist)
-
+        print(createList)
         createAsk = input('What do you want to do? ')
 
         # Create team list
         if createAsk == '1':
-            Files()
-
             askChoice = ' \n'.join(Ask)
             print(askChoice)
+            addMembers = input('Add a team member? ')
+            if addMembers.lower() == 'n':
+                teamInfo()
 
-            Add = input('Add a team member? ')
-            if Add.lower() == 'n':
-                data.Create_Lists()
+            elif addMembers.lower() == 'y':
+                #name = input('Enter name and seniority number. ')
+                conn = sqlite3.connect('Bid.db')
+                cursor = conn.cursor()
 
-            elif Add.lower() == 'y':
-                name = input('Enter name and seniority number. ')
-                print('Under development')
-                data.Create_Lists()
-
-            else:
-                print(invalidEntry)
-                data.Create_Lists()
-
-        # Create a list of all existing bid lines.
-        elif Create_Ask == '2':
-            Files()
-
-            print(askChoice)
-
-            Add = input('Add a bid line? ')
-
-            if Add.lower() == 'n':
-                data.Create_Lists()
-
-            elif Add.lower() == 'y':
-                print('Under development.\n')
-                data.Create_Lists()
-
-            else:
-                print(Entry)
-                data.Create_Lists()
-
-        elif Create_Ask == '3':
-            choice.Activity_Choices()
+                while True:
+                    Name = input('Employee\'s name: ')
+                    Seniority = input('Employee\'s seniority: ')
+                    bidLine = input('Employee\'s bid: ')
+                    sql = '''insert into Bid
+                        (Name, Seniority, BidLine)
+                        values
+                        (:em_Name, :em_Seniority, :em_bidLine)'''
+                    cursor.execute(sql,
+                        {'em_Name': Name,
+                        'em_Seniority': Seniority,
+                        'em_BidLine': BidLine})
+                    conn.commit()
+                    cont = input('Add Another Employee? ')
+                    if cont[0].lower() == 'n':
+                        break
+                cursor.close()
+            teamInfo()
+				
+        elif createAsk == '2':
+            quit()
 
         else:
-            print(Entry)
-            data.Create_Lists()
+            print('Invalid entry!')
+            teamInfo()
+
+
+class bidLineList(object):
+    # Create a list of all existing bid lines.
+    def __init__(self):
+        addLine = input('Add a bid line? ')
+        Ask = ('y', 'n')
+        askChoice = ' \n'.join(Ask)
+        print(askChoice)
+
+        if addLine.lower() == 'y':
+            conn = sqlite3.connect('bid.db') 
+            cursor = conn.cursor()
+            sql = '''create table bid (
+                Name text,
+                Seniority int,
+                Bidline int)'''
+            cursor.execute(sql)
+            cursor.close()
+
+        elif addLine.lower() == 'n':
+            print('Under development.')
+            bidLineList()
+
+        else:
+            print('Invalid entry!')
+            bidLineList()
+
 
 
 class Choices(object):
-    
+
     def __init__(self):
         pass
 
