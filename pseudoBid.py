@@ -1,8 +1,8 @@
-#By Micah M. 2017
+#By Micah M. 2018
 
-#Create a database of all employees with their seniority numbers and current bid line numbers.
+#Create a database of all employees with their seniority numbers and current bid line numbers. creat_db.py
 
-#Create a database of all existing bid lines.
+#Create a database of all existing bid lines. bidlinelist.py
 	
 #Create an interface to allow employees to bid on the bid lines starting with the highest seniority.
 	#List activity choices.
@@ -12,12 +12,12 @@
 		#Edit bid lines
 		#Edit Employees
 	
-	#New bid
+	#New bid createBid.py
 		#Ask if a new bid is being started.
 			#If yes proceed.
 			#If no return to activity list.
 			
-	#View available bid lines.
+	#View available bid lines. seeBid.py
 		#Display database of all existing bid lines.
 	
 	#View current bid assignments.
