@@ -7,9 +7,9 @@
 import sqlite3
 
 
-class DataBase(object):
+class dataBase(object):
 
-    def createdb(self):
+    def create(self):
         conn = sqlite3.connect('bid.db') 
         cursor = conn.cursor()
         sql = '''create table bid (
@@ -20,5 +20,5 @@ class DataBase(object):
         cursor.close()
 
 if __name__ == "__main__":
-    bid = DataBase()
-    bid.createdb()
+    bid = dataBase()
+    bid.create()
