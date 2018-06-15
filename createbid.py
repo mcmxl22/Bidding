@@ -39,13 +39,13 @@ class bid(object):
             Seniority = input('Employee\'s seniority: ')
             BidLine = input('Employee\'s bid: ')
             sql = '''insert into Bid
-                       (Name, Seniority, BidLine)
+                       (Name, Seniority, Bid Line)
                        values
-                       (:em_Name, :em_Seniority, :em_BidLine)''' 
+                       (:em_Name, :em_Seniority, :em_Bid Line)''' 
             cursor.execute(sql,
                            {'em_Name': Name,
                             'em_Seniority': Seniority,
-                            'em_BidLine': BidLine})
+                            'em_BidLine': Bid Line})
             conn.commit()
             cont = input('Add Another Employee? ')
             if cont[0].lower() == 'n':
