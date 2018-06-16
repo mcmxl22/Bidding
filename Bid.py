@@ -111,25 +111,25 @@ class Choices(object):
 
     def activityChoices(self):
         choice = Choices()
-        data = Data()
-        Entry = ('Invalid entry!')
-        Ask = ('y', 'n')
-        Actions = ('1 New Bid', '2 View available bid lines',
+        #data = Data()
+        entry = ('Invalid entry!')
+        ask = ('y', 'n')
+        actions = ('1 New Bid', '2 View available bid lines',
                    '3 View current bid assignments', '4 Edit bid lines',
                    '5 Edit team members', '6 Create Lists', '7 Exit\n')
-        actionsList = ' \n'.join(Actions)
+        actionsList = ' \n'.join(actions)
         print(actionsList)
 
-        newAsk = input('Choose an option. ')
+        newAsk = input('Select an option.\n> ')
 
         if newAsk == '1':
 
-            askChoice = ' \n'.join(Ask)
+            askChoice = ' \n'.join(ask)
             print(askChoice)
 
-            Ask = input('\nDo you want to start a new bid? ')
+            ask = input('\nDo you want to start a new bid? ')
 
-            if Ask.lower() == 'y':
+            if ask.lower() == 'y':
                 bidLine = input('Enter your name. ')
 
                 if bidLine in open('BidLines.csv').read():
@@ -140,11 +140,11 @@ class Choices(object):
                             fin.close()
 
             else:
-                activityChoices()
+                choice.activityChoices()
 
         # View available bid lines.
         elif newAsk == '2':
-            bidLines = input('Enter file name. ')
+            bidLines = input('Enter file name.\n> ')
             with open(bidLines, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
@@ -152,7 +152,7 @@ class Choices(object):
 
         # View current bid assignments.
         elif newAsk == '3':
-            assignment = input('Enter file name. ')
+            assignment = input('Enter file name.\n> ')
             with open(assignment, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
@@ -166,7 +166,7 @@ class Choices(object):
                             '3 Delete bid lines', '4 Back')
 
             print(editActions)
-            chooseOption = input('Choose an option. ')
+            chooseOption = input('Choose an option.\n> ')
 
             if chooseOption == '1':
                 Files()
@@ -188,17 +188,15 @@ class Choices(object):
             if chooseOption == '4':
                 choice.activityChoices()
 
-            else:
-                print(invalidEntry)
-                print(editActions)
-
         # Edit team members.
-        elif chooseOption == '5':
+        elif newAsk == '5':
             editChoices = ('1 Change existing team members',
-                            '2 Add new team members',
-                            '3 Remove team members', '4 Back')
+                           '2 Add new team members',
+                           '3 Remove team members', '4 Back')
 
-            print(editChoices)
+            actionsList = ' \n'.join(editChoices)
+            print(actionsList)
+            chooseOption = input('Choose an option.\n> ')
 
             if chooseOption == '1':
                 Files()
@@ -219,21 +217,22 @@ class Choices(object):
                 choice.activityChoices()
 
             elif chooseOption == '4':
-                choice.activityChoices()
+                    choice.activityChoices()
 
             else:
                 print(Entry)
-                print(editActions)
+                #print(editActions)
                 choice.activityChoices()
 
-        elif editAsk == '6':
-            data.Create_Lists()
+        elif newAsk == '6':
+            print('\nunder development\n')
+            choice.activityChoices()
 
-        elif editAsk == '7':
-            quit()
+        elif newAsk == '7':
+            raise SystemExit()
 
         else:
-            print(Entry)
+            print(entry)
             choice.activityChoices()
 
 
