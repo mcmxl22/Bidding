@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01.02
+# Bid Version 1.01.03
 # Python 3.6.5
 
 
@@ -119,12 +119,12 @@ class Choices(object):
         if select == '1':
             print(' \n'.join(answer))
 
-            ask = input('\nDo you want to start a new bid? ')
+            start = input('\nDo you want to start a new bid? ')
 
-            if ask == 'y':
-                bidLine = input('Enter your name. ')
+            if start == 'y':
+                name = input('Enter your name. ')
 
-                if bidLine in open('BidLines.csv').read():
+                if name in open('BidLines.csv').read():
                     print('Available bid lines.\n')
                     with open('BidLines.csv', 'r') as fin:
                         for i in fin.readlines():
@@ -136,16 +136,16 @@ class Choices(object):
 
         # View available bid lines.
         elif select == '2':
-            bidLines = input('Enter file name.\n> ')
-            with open(bidLines, 'r') as fin:
+            fileName = input('Enter file name.\n> ')
+            with open(fileName, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
             choice.activityChoices()
 
         # View current bid assignments.
         elif select == '3':
-            viewAssignment = input('Enter file name.\n> ')
-            with open(viewAssignment, 'r') as fin:
+            fileName = input('Enter file name.\n> ')
+            with open(fileName, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
             choice.activityChoices()
@@ -181,21 +181,21 @@ class Choices(object):
                            '3 Remove team members', '4 Back')
 
             print(' \n'.join(editChoices))
-            chooseOption = input('Choose an option.\n> ')
+            select = input('Select an option.\n> ')
 
-            if chooseOption == '1':
+            if select == '1':
                 print('Under development')
                 choice.activityChoices()
 
-            elif chooseOption == '2':
+            elif select == '2':
                 print('Under development')
                 choice.activityChoices()
 
-            elif chooseOption == '3':
+            elif select == '3':
                 print('Under development')
                 choice.activityChoices()
 
-            elif chooseOption == '4':
+            elif select == '4':
                 choice.activityChoices()
 
             else:
