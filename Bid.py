@@ -118,14 +118,8 @@ class Choices(object):
 
         if select == '1':
             print(' \n'.join(answer))
-
             start = input('\nDo you want to start a new bid? ')
-
-<<<<<<< HEAD
-            if ask == 'y':
-=======
             if start == 'y':
->>>>>>> 0cb7717e00f136018c801325d9bc8b9f391298bf
                 name = input('Enter your name. ')
 
                 if name in open('BidLines.csv').read():
