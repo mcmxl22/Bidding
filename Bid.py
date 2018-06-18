@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01
+# Bid Version 1.01.01
 # Python 3.6.4
 
 
@@ -10,10 +10,11 @@ import sqlite3
 import sys
 import subprocess
 
+
 # Create file(s).
 def Files():
 
-    filename = input('Enter file name. ')
+    filename = input('Enter file name.\n> ')
     close = f.close()
     if os.path.exists(filename):
         f = open(filename, 'a')
@@ -32,15 +33,13 @@ class teamInfo(object):
     def __init__(self):
         Ask = ('y', 'n')
         createChoices = ('1 Create team list', '2 Exit\n')
-        createList = ' \n'.join(createChoices)
-        print(createList)
-        createAsk = input('What do you want to do? ')
+        print(' \n'.join(createChoices))
+        select = input('Select an option.\n> ')
 
         # Create team list
-        if createAsk == '1':
-            askChoice = ' \n'.join(Ask)
-            print(askChoice)
-            addMembers = input('Add a team member? ')
+        if select == '1':
+            print(' \n'.join(Ask))
+            addMembers = input('Add a team member?\n> ')
             if addMembers.lower() == 'n':
                 teamInfo()
 
@@ -62,27 +61,27 @@ class teamInfo(object):
                         'em_Seniority': Seniority,
                         'em_BidLine': BidLine})
                     conn.commit()
-                    cont = input('Add Another Employee? ')
+                    cont = input('Add Another Employee?\n> ')
                     if cont[0].lower() == 'n':
                         break
                 cursor.close()
             teamInfo()
 				
-        elif createAsk == '2':
-            quit()
+        elif select == '2':
+            raise SystemExit()
 
         else:
             print('Invalid entry!')
             teamInfo()
 
 
+# Create a list of all existing bid lines.
 class bidLineList(object):
-    # Create a list of all existing bid lines.
+
     def __init__(self):
         addLine = input('Add a bid line? ')
-        Ask = ('y', 'n')
-        askChoice = ' \n'.join(Ask)
-        print(askChoice)
+        answer = ('y', 'n')
+        print(' \n'.join(answer))
 
         if addLine.lower() == 'y':
             conn = sqlite3.connect('bid.db') 
@@ -106,30 +105,23 @@ class bidLineList(object):
 
 class Choices(object):
 
-    def __init__(self):
-        pass
-
     def activityChoices(self):
         choice = Choices()
-        #data = Data()
         entry = ('Invalid entry!')
-        ask = ('y', 'n')
+        answer = ('y', 'n')
         actions = ('1 New Bid', '2 View available bid lines',
                    '3 View current bid assignments', '4 Edit bid lines',
                    '5 Edit team members', '6 Create Lists', '7 Exit\n')
-        actionsList = ' \n'.join(actions)
-        print(actionsList)
+        print(' \n'.join(actions))
 
-        newAsk = input('Select an option.\n> ')
+        select = input('Select an option.\n> ')
 
-        if newAsk == '1':
-
-            askChoice = ' \n'.join(ask)
-            print(askChoice)
+        if select == '1':
+            print(' \n'.join(answer))
 
             ask = input('\nDo you want to start a new bid? ')
 
-            if ask.lower() == 'y':
+            if ask == 'y':
                 bidLine = input('Enter your name. ')
 
                 if bidLine in open('BidLines.csv').read():
@@ -143,7 +135,7 @@ class Choices(object):
                 choice.activityChoices()
 
         # View available bid lines.
-        elif newAsk == '2':
+        elif select == '2':
             bidLines = input('Enter file name.\n> ')
             with open(bidLines, 'r') as fin:
                 for i in fin.readlines():
@@ -151,21 +143,21 @@ class Choices(object):
             choice.activityChoices()
 
         # View current bid assignments.
-        elif newAsk == '3':
-            assignment = input('Enter file name.\n> ')
-            with open(assignment, 'r') as fin:
+        elif select == '3':
+            viewAssignment = input('Enter file name.\n> ')
+            with open(viewAssignment, 'r') as fin:
                 for i in fin.readlines():
                     print(i)
             choice.activityChoices()
 
         # Edit bid lines.
-        elif newAsk == '4':
+        elif select == '4':
 
             editActions = ('1 Change existing bidlines',
                             '2 Add new bid lines',
                             '3 Delete bid lines', '4 Back')
 
-            print(editActions)
+            print(' \n'.join(editActions))
             chooseOption = input('Choose an option.\n> ')
 
             if chooseOption == '1':
@@ -189,13 +181,12 @@ class Choices(object):
                 choice.activityChoices()
 
         # Edit team members.
-        elif newAsk == '5':
+        elif select == '5':
             editChoices = ('1 Change existing team members',
                            '2 Add new team members',
                            '3 Remove team members', '4 Back')
 
-            actionsList = ' \n'.join(editChoices)
-            print(actionsList)
+            print(' \n'.join(editChoices))
             chooseOption = input('Choose an option.\n> ')
 
             if chooseOption == '1':
@@ -224,7 +215,7 @@ class Choices(object):
                 #print(editActions)
                 choice.activityChoices()
 
-        elif newAsk == '6':
+        elif select == '6':
             print('\nunder development\n')
             choice.activityChoices()
 
