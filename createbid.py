@@ -1,57 +1,63 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# createBid version 1.01
-# Python 3.6.4
+# createBid version 1.02.03
+# Python 3.6.5
 
 
 import sqlite3
+import sys
+import subprocess
 
 
-conn = sqlite3.connect('Bid.db')
-cursor = conn.cursor()
-who = {1: 'Micah C McConnaughey', 2: 'name2', 3: 'name3'}
+class bid():
 
+    def createBid(self):
 
-def bid():
-
-    ask = input('Name? ')
-
-    if ask == who[1]:
-        results = cursor.execute("SELECT * FROM Bid WHERE names = (%s, %s, %s)"
-                                 ('Micah C McConnaughey', 'name2', 'name3'))
-        names = results.fetchall()
-        print (names)
-		
-if __name__ == "__main__":
-    bid()
-
-
-
-class bid(object):
-
-    def createbid(self):
-
-        conn = sqlite3.connect('Bid.db')
-        cursor = conn.cursor()
-
-        while True:
-            Name = input('Employee\'s name: ')
-            Seniority = input('Employee\'s seniority: ')
-            BidLine = input('Employee\'s bid: ')
-            sql = '''insert into Bid
-                       (Name, Seniority, Bid-Line)
-                       values
-                       (:em_Name, :em_Seniority, :em_Bid-Line)''' 
-            cursor.execute(sql,
-                           {'em_Name': Name,
-                            'em_Seniority': Seniority,
-                            'em_BidLine': Bid-Line})
-            conn.commit()
-            cont = input('Add Another Employee? ')
-            if cont[0].lower() == 'n':
-                break
+        fileName = input('Enter file name.\n> ')
+        conn = sqlite3.connect(fileName + '.db')
+        cursor = conn.cursor()            
+        Name = input('Team member\'s name: ')
+        Seniority = input('Team member\'s seniority: ')
+        BidLine = input('Team member\'s bid: ')
+        sql = '''insert into bid
+            (Name, Seniority, BidLine)
+            values
+            (:tm_Name, :tm_Seniority, :tm_BidLine)''' 
+        cursor.execute(sql,
+            {'tm_Name': Name,
+             'tm_Seniority': Seniority,
+             'tm_BidLine': BidLine})
+        conn.commit()
+        cont = input('Add another team member?\n> ')
+        if cont[0].lower() == 'n':
+            cursor.close()
+            Bid = [sys.executable, 'Bid.py']
+            subprocess.call(Bid)
         cursor.close()
+
+
+    def createTable(self):
+
+        creatFile = input('Do you want to create a new bid file?\n> ')
+
+        if creatFile == 'y':
+
+            fileName = input('What should the filename be?\n> ')
+            conn = sqlite3.connect(fileName + '.db')
+            cursor = conn.cursor()        
+            print('Creating table.')
+            sql = '''create table bid (
+                Name text,
+                Seniority int,
+                Bidline int)'''
+            cursor.execute(sql)
+            print('Done!')
+            bid.createBid()
+
+        else:
+            raise SystemExit
 
 if __name__ == "__main__":
     bid = bid()
-    bid.createbid()
+    bid.createTable()
+

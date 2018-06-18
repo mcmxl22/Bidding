@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01.03
+# Bid Version 1.01.04
 # Python 3.6.5
 
 
@@ -11,7 +11,7 @@ import sys
 import subprocess
 
 
-# Create file(s).
+#Create file(s).
 def Files():
 
     filename = input('Enter file name.\n> ')
@@ -117,20 +117,8 @@ class Choices(object):
         select = input('Select an option.\n> ')
 
         if select == '1':
-            print(' \n'.join(answer))
-            start = input('\nDo you want to start a new bid? ')
-            if start == 'y':
-                name = input('Enter your name. ')
-
-                if name in open('BidLines.csv').read():
-                    print('Available bid lines.\n')
-                    with open('BidLines.csv', 'r') as fin:
-                        for i in fin.readlines():
-                            print(i)
-                            fin.close()
-
-            else:
-                choice.activityChoices()
+            createBid = [sys.executable, 'createbid.py']
+            subprocess.call(createBid)
 
         # View available bid lines.
         elif select == '2':
@@ -205,7 +193,7 @@ class Choices(object):
             choice.activityChoices()
 
         elif select == '7':
-            raise SystemExit()
+            raise SystemExit
 
         else:
             print(entry)
