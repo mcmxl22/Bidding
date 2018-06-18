@@ -56,7 +56,6 @@ class bid():
             print('Done!')
             bid.createBid()
 
-=======
 class bid():
 
     def createBid(self):
@@ -103,15 +102,9 @@ class bid():
             print('Done!')
             bid.createBid()
 
->>>>>>> 70ed9465e3d0b2fb8e0991664635cffe44ed31ff
         else:
             raise SystemExit
 
 if __name__ == "__main__":
     bid = bid()
     bid.createTable()
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 70ed9465e3d0b2fb8e0991664635cffe44ed31ff
