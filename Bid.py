@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01.04
+# Bid Version 1.01.05
 # Python 3.6.5
 
 
@@ -111,7 +111,7 @@ class Choices(object):
         answer = ('y', 'n')
         actions = ('1 New Bid', '2 View available bid lines',
                    '3 View current bid assignments', '4 Edit bid lines',
-                   '5 Edit team members', '6 Create Lists', '7 Exit\n')
+                   '5 Edit team members', '6 Create Lists', '7 Delete bid' '8 Exit\n')
         print(' \n'.join(actions))
 
         select = input('Select an option.\n> ')
@@ -193,6 +193,10 @@ class Choices(object):
             choice.activityChoices()
 
         elif select == '7':
+            deleteBid = [sys.executable, 'deleteBid.py']
+            subprocess.call(deleteBid)            
+
+        elif select == '8':
             raise SystemExit
 
         else:
