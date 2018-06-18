@@ -7,7 +7,6 @@
 import sqlite3
 
 
-
 class bid():
 
     def createBid(self):
@@ -17,19 +16,19 @@ class bid():
             fileName = input('Enter file name.\n> ')
             conn = sqlite3.connect(fileName + '.db')
             cursor = conn.cursor()            
-            Name = input('Employee\'s name: ')
-            Seniority = input('Employee\'s seniority: ')
-            BidLine = input('Employee\'s bid: ')
+            Name = input('Team member\'s name: ')
+            Seniority = input('Team member\'s seniority: ')
+            BidLine = input('Team member\'s bid: ')
             sql = '''insert into bid
                        (Name, Seniority, BidLine)
                        values
-                       (:em_Name, :em_Seniority, :em_BidLine)''' 
+                       (:tm_Name, :tm_Seniority, :tm_BidLine)''' 
             cursor.execute(sql,
-                           {'em_Name': Name,
-                            'em_Seniority': Seniority,
-                            'em_BidLine': BidLine})
+                           {'tm_Name': Name,
+                            'tm_Seniority': Seniority,
+                            'tm_BidLine': BidLine})
             conn.commit()
-            cont = input('Add Another Employee?\n> ')
+            cont = input('Add another team member?\n> ')
             if cont[0].lower() == 'n':
                 cursor.close()
                 raise SystemExit
@@ -60,4 +59,5 @@ class bid():
 if __name__ == "__main__":
     bid = bid()
     bid.createTable()
+
 
