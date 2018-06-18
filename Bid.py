@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01.01
-# Python 3.6.4
+# Bid Version 1.01.02
+# Python 3.6.5
 
 
 import os.path
@@ -31,14 +31,14 @@ def Files():
 class teamInfo(object):
 
     def __init__(self):
-        Ask = ('y', 'n')
+        answer = ('y', 'n')
         createChoices = ('1 Create team list', '2 Exit\n')
         print(' \n'.join(createChoices))
         select = input('Select an option.\n> ')
 
         # Create team list
         if select == '1':
-            print(' \n'.join(Ask))
+            print(' \n'.join(answer))
             addMembers = input('Add a team member?\n> ')
             if addMembers.lower() == 'n':
                 teamInfo()
@@ -107,7 +107,7 @@ class Choices(object):
 
     def activityChoices(self):
         choice = Choices()
-        entry = ('Invalid entry!')
+        entry = ('\nInvalid entry!\n')
         answer = ('y', 'n')
         actions = ('1 New Bid', '2 View available bid lines',
                    '3 View current bid assignments', '4 Edit bid lines',
@@ -158,26 +158,20 @@ class Choices(object):
                             '3 Delete bid lines', '4 Back')
 
             print(' \n'.join(editActions))
-            chooseOption = input('Choose an option.\n> ')
+            select = input('Select an option.\n> ')
 
-            if chooseOption == '1':
-                Files()
-                # edit = input()
-                print('Done!')
+            if select == '1':
+                print('Under development')
 
-            elif chooseOption == '2':
-                Files()
-                # edit = input()
-                print('Done!')
+            elif select == '2':
+                print('Under development')
                 choice.activityChoices()
 
-            elif chooseOption == '3':
-                Files()
-                # edit = input()
-                print('Done!')
+            elif select == '3':
+                print('Under development')
                 choice.activityChoices()
 
-            if chooseOption == '4':
+            if select == '4':
                 choice.activityChoices()
 
         # Edit team members.
@@ -190,36 +184,29 @@ class Choices(object):
             chooseOption = input('Choose an option.\n> ')
 
             if chooseOption == '1':
-                Files()
-                # edit = input()
-                print('Done!')
+                print('Under development')
                 choice.activityChoices()
 
             elif chooseOption == '2':
-                Files()
-                # edit = input()
-                print('Done!')
+                print('Under development')
                 choice.activityChoices()
 
             elif chooseOption == '3':
-                Files()
-                # edit = input()
-                print('Done!')
+                print('Under development')
                 choice.activityChoices()
 
             elif chooseOption == '4':
-                    choice.activityChoices()
+                choice.activityChoices()
 
             else:
-                print(Entry)
-                #print(editActions)
+                print(entry)
                 choice.activityChoices()
 
         elif select == '6':
             print('\nunder development\n')
             choice.activityChoices()
 
-        elif newAsk == '7':
+        elif select == '7':
             raise SystemExit()
 
         else:
@@ -227,12 +214,6 @@ class Choices(object):
             choice.activityChoices()
 
 
-class main(object):
-
-    def __init__(self):
-        choices = Choices()
-        choices.activityChoices()
-
-
 if __name__ == "__main__":
-    main()
+    choices = Choices()
+    choices.activityChoices()
