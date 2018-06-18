@@ -37,7 +37,6 @@ class bid():
         cursor.close()
 
 
-<<<<<<< HEAD
     def createTable(self):
 
         creatFile = input('Do you want to create a new bid file?\n> ')
