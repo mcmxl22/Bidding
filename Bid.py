@@ -122,9 +122,9 @@ class Choices(object):
             ask = input('\nDo you want to start a new bid? ')
 
             if ask == 'y':
-                bidLine = input('Enter your name. ')
+                name = input('Enter your name. ')
 
-                if bidLine in open('BidLines.csv').read():
+                if name in open('BidLines.csv').read():
                     print('Available bid lines.\n')
                     with open('BidLines.csv', 'r') as fin:
                         for i in fin.readlines():
