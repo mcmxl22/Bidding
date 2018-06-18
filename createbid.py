@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# createBid version 1.01.02
+# createBid version 1.02
 # Python 3.6.5
 
 
@@ -32,8 +32,20 @@ class bid():
             if cont[0].lower() == 'n':
                 break
         cursor.close()
+        
+    def createTable(self):
+        
+        conn = sqlite3.connect('bid.db')
+        cursor = conn.cursor()        
+        print('Creating table.')
+        sql = '''create table bid (
+            Name text,
+            Seniority int,
+            Bidline int)'''
+        cursor.execute(sql)
+        print('Done!')
+        bid.createbid()
 
 if __name__ == "__main__":
     bid = bid()
-    bid.createbid()
-
+    bid.createTable()
