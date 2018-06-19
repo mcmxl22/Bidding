@@ -15,6 +15,7 @@ def delete():
         os.remove(fileName)
         delete()
     else:
+        print('Invalid entry!')
         delete()
     
 
