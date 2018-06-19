@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# bidding version 1.01
-# Python 3.6.4
+# bidding version 1.01.01
+# Python 3.6.5
 
 
 import sqlite3
 
-
-conn = sqlite3.connect('Bid.db')
+fileName = input('Enter file name.\n> ')
+conn = sqlite3.connect(fileName)
 cursor = conn.cursor()
 who = {1: 'Micah C McConnaughey', 2: 'name2', 3: 'name3'}
 
