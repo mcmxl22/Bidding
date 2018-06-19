@@ -18,9 +18,9 @@ class Choices(object):
         choice = Choices()
         entry = ('\nInvalid entry!\n')
         answer = ('y', 'n')
-        actions = ('1 New bid',  '2 View current bid files', 
+        actions = ('1 Create new bid',  '2 View current bid files', 
 		   '3 Edit bid lines', '4 Edit team members', '5 Create Lists', 
-	           '6 Delete bid', '7 Exit\n')
+	           '6 Delete a bid', '7 Exit\n')
         print(' \n'.join(actions))
 
         select = input('Select an option.\n> ')
@@ -37,22 +37,22 @@ class Choices(object):
         # Edit bid lines.
         elif select == '3':
 
-            editActions = ('1 Change existing bidlines',
-                            '2 Add new bid lines',
-                            '3 Delete bid lines', '4 Back')
+            editActions = ('1 Change existing bidlines.',
+                           '2 Add new bid lines.',
+                           '3 Delete bid lines.', '4 Back')
 
             print(' \n'.join(editActions))
             select = input('Select an option.\n> ')
 
             if select == '1':
-                print('Under development')
+                print('Under development!')
 
             elif select == '2':
-                print('Under development')
+                print('Under development!')
                 choice.activityChoices()
 
             elif select == '3':
-                print('Under development')
+                print('Under development!')
                 choice.activityChoices()
 
             if select == '4':
@@ -60,23 +60,23 @@ class Choices(object):
 
         # Edit team members.
         elif select == '4':
-            editChoices = ('1 Change existing team members',
-                           '2 Add new team members',
-                           '3 Remove team members', '4 Back')
+            editChoices = ('1 Change existing team members.',
+                           '2 Add new team members.',
+                           '3 Remove team members.', '4 Back')
 
             print(' \n'.join(editChoices))
             select = input('Select an option.\n> ')
 
             if select == '1':
-                print('Under development')
+                print('Under development!')
                 choice.activityChoices()
 
             elif select == '2':
-                print('Under development')
+                print('Under development!')
                 choice.activityChoices()
 
             elif select == '3':
-                print('Under development')
+                print('Under development!')
                 choice.activityChoices()
 
             elif select == '4':
@@ -87,7 +87,7 @@ class Choices(object):
                 choice.activityChoices()
 
         elif select == '5':
-            print('\nunder development\n')
+            print('\nunder development!\n')
             choice.activityChoices()
 
         elif select == '6':
