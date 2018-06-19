@@ -1,41 +1,22 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# deleteBid version 1.01
-# Python 3.6.4
+# deleteBid version 1.02
+# Python 3.6.5
 
 
-import sqlite3
+import os
 
 
-def remove_bid():
+def delete():
 
-    conn = sqlite3.connect('Bid.db')
-    cursor = conn.cursor()
-
-    while True:
-        print('Enter name to be deleted.')
-        choice1 = input('\n> ')
-		
-        sql = '''delete from Bid...'''
-
-        cursor.execute(sql)
-
-        conn.commit()
-        cursor.close()
-
-
-def choice():
-    print('Delete bid? ')
-	
-    answer = ('yes', 'no')
-
-    for a in answer:
-        print('\n%s' % a)
-    choice1 = input('\n> ')
-    if choice1 == answer[0]:
-        remove_bid()
-    elif choice1 == answer[1]:
-        choice()
+    fileName = input('Enter file to be deleted.\n> ')
+    confirm = input('Are you sure you want to delete %s?\n> ' % fileName)
+    if confirm == 'y':
+        os.remove(fileName)
+        delete()
+    else:
+        delete()
+    
 
 if __name__ == "__main__":
-    choice()
+    delete()
