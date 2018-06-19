@@ -1,29 +1,13 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01.04
+# Bid Version 1.01.07
 # Python 3.6.5
 
 
 import os.path
-import csv
 import sqlite3
 import sys
 import subprocess
-
-
-#Create file(s).
-def Files():
-
-    filename = input('Enter file name.\n> ')
-    close = f.close()
-    if os.path.exists(filename):
-        f = open(filename, 'a')
-        close
-    elif not os.path.exists(filename):
-        print('{} {}{}'.format('Creating', filename, '.txt'))
-        f = open(filename, 'w+')
-        close
-        print('Done!')
 
 
 # Create lists of all bid lines, and all team members with their
@@ -36,7 +20,7 @@ class teamInfo(object):
         print(' \n'.join(createChoices))
         select = input('Select an option.\n> ')
 
-        # Create team list
+        # Create team list.
         if select == '1':
             print(' \n'.join(answer))
             addMembers = input('Add a team member?\n> ')
@@ -49,17 +33,17 @@ class teamInfo(object):
                 cursor = conn.cursor()
 
                 while True:
-                    Name = input('Employee\'s name: ')
-                    Seniority = input('Employee\'s seniority: ')
-                    bidLine = input('Employee\'s bid: ')
-                    sql = '''insert into Bid
+                    Name = input('Team member\'s name: ')
+                    Seniority = input('Team member\'s seniority: ')
+                    bidLine = input('Team member\'s bid: ')
+                    sql = '''insert into bid
                         (Name, Seniority, BidLine)
                         values
-                        (:em_Name, :em_Seniority, :em_bidLine)'''
+                        (:tm_Name, :tm_Seniority, :tm_bidLine)'''
                     cursor.execute(sql,
-                        {'em_Name': Name,
-                        'em_Seniority': Seniority,
-                        'em_BidLine': BidLine})
+                        {'tm_Name': Name,
+                        'tm_Seniority': Seniority,
+                        'tm_BidLine': BidLine})
                     conn.commit()
                     cont = input('Add Another Employee?\n> ')
                     if cont[0].lower() == 'n':
@@ -109,9 +93,9 @@ class Choices(object):
         choice = Choices()
         entry = ('\nInvalid entry!\n')
         answer = ('y', 'n')
-        actions = ('1 New Bid', '2 View available bid lines',
-                   '3 View current bid assignments', '4 Edit bid lines',
-                   '5 Edit team members', '6 Create Lists', '7 Exit\n')
+        actions = ('1 New bid',  '2 View current bid files', 
+		           '3 Edit bid lines', '4 Edit team members', '5 Create Lists', 
+				   '6 Delete bid', '7 Exit\n')
         print(' \n'.join(actions))
 
         select = input('Select an option.\n> ')
@@ -120,24 +104,13 @@ class Choices(object):
             createBid = [sys.executable, 'createbid.py']
             subprocess.call(createBid)
 
-        # View available bid lines.
+        # View available bid files.
         elif select == '2':
-            fileName = input('Enter file name.\n> ')
-            with open(fileName, 'r') as fin:
-                for i in fin.readlines():
-                    print(i)
-            choice.activityChoices()
-
-        # View current bid assignments.
-        elif select == '3':
-            fileName = input('Enter file name.\n> ')
-            with open(fileName, 'r') as fin:
-                for i in fin.readlines():
-                    print(i)
-            choice.activityChoices()
+            seeBid = [sys.executable, 'seeBid.py']
+            subprocess.call(seeBid)
 
         # Edit bid lines.
-        elif select == '4':
+        elif select == '3':
 
             editActions = ('1 Change existing bidlines',
                             '2 Add new bid lines',
@@ -161,7 +134,7 @@ class Choices(object):
                 choice.activityChoices()
 
         # Edit team members.
-        elif select == '5':
+        elif select == '4':
             editChoices = ('1 Change existing team members',
                            '2 Add new team members',
                            '3 Remove team members', '4 Back')
@@ -188,9 +161,13 @@ class Choices(object):
                 print(entry)
                 choice.activityChoices()
 
-        elif select == '6':
+        elif select == '5':
             print('\nunder development\n')
             choice.activityChoices()
+
+        elif select == '6':
+            deleteBid = [sys.executable, 'deleteBid.py']
+            subprocess.call(deleteBid)            
 
         elif select == '7':
             raise SystemExit
