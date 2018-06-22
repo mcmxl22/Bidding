@@ -8,11 +8,12 @@ import os.path
 
 
 class Files(object):
+
     # Create a file and confirm it.
     def create():
         files = Files()
         # create file.
-        fileName = input('Enter file name. ')
+        fileName = input('Enter file name.\n> ')
         if os.path.exists(fileName) is True:
             print('File already exists!')
             files.create()
