@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# Bid Version 1.01.08
-# Python 3.6.5
+# Bid Version 1.01.10
+# Python 3.7
 
 
 import os.path
@@ -15,9 +15,9 @@ import subprocess
 def activityChoices():
     entry = ('\nInvalid entry!\n')
     answer = ('y', 'n')
-    actions = ('1 Create new bid',  '2 View current bid files', 
+    actions = ['1 Create new bid',  '2 View current bid files', 
                '3 Edit bid lines', '4 Edit team members', '5 Create Lists', 
-               '6 Delete a bid', '7 Exit\n')
+               '6 Delete a bid', '7 Exit\n']
     print(' \n'.join(actions))
 
     select = input('Select an option.\n> ')
@@ -34,16 +34,17 @@ def activityChoices():
     # Edit bid lines.
     elif select == '3':
 
-        editActions = ('1 Change existing bidlines.',
+        editActions = ['1 Change existing bidlines.',
                        '2 Add new bid lines.',
-                       '3 Delete bid lines.', '4 Back')
+                       '3 Delete bid lines.', '4 Back']
 
         print(' \n'.join(editActions))
         select = input('Select an option.\n> ')
 
         if select == '1':
             print('Under development!')
-
+            activityChoices()
+            
         elif select == '2':
             print('Under development!')
             activityChoices()
@@ -57,9 +58,9 @@ def activityChoices():
 
     # Edit team members.
     elif select == '4':
-        editChoices = ('1 Change existing team members.',
+        editChoices = ['1 Change existing team members.',
                        '2 Add new team members.',
-                       '3 Remove team members.', '4 Back')
+                       '3 Remove team members.', '4 Back']
 
         print(' \n'.join(editChoices))
         select = input('Select an option.\n> ')
