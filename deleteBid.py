@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # By Micah M. 2018
-# deleteBid version 1.02.01
-# Python 3.6.5
+# deleteBid version 1.02.02
+# Python 3.7
 
 
 import os
@@ -17,10 +17,10 @@ def delete():
         subprocess.call(Bid)
     
     if os.path.exists(fileName) is False: # Check if database file exists.
-        print('File %s doesn\'t exist!' % fileName)
+        print(f'File {fileName} doesn\'t exist!')
         delete() 
     
-    confirm = input('Are you sure you want to delete %s?\n> ' % fileName) # Confirm file to be deleted.
+    confirm = input(f'Are you sure you want to delete {fileName}?\n> ') # Confirm file to be deleted.
   
     if confirm == 'y':
         os.remove(fileName) 
