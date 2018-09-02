@@ -1,6 +1,6 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 # By Micah M. 2018
-# deleteBid version 1.02.02
+# deleteBid version 1.1
 # Python 3.7
 
 
