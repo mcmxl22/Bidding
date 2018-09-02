@@ -1,8 +1,7 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 # By Micah M. 2018
-# createBid version 1.02.03
-# createBid version 1.02.02
-# Python 3.6.5
+# createBid version 1.1
+# Python 3.7
 
 
 import sqlite3
