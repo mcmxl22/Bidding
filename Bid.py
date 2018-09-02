@@ -1,6 +1,6 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 # By Micah M. 2018
-# Bid Version 1.01.10
+# Bid Version 1.2
 # Python 3.7
 
 
@@ -100,4 +100,5 @@ def activityChoices():
         activityChoices()
 
 
-activityChoices()
+if __name__ == "__main__":
+    activityChoices()
