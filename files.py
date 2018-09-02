@@ -1,7 +1,7 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 # By Micah M. 2018
-# Files Version 1.01
-# Python 3.6.5
+# Files Version 1.1
+# Python 3.7
 
 
 import os.path
@@ -9,7 +9,7 @@ import os.path
 
 class Files(object):
 
-    # Create a file and confirm it.
+    # Creates a file and confirms it.
     def create():
         files = Files()
         # create file.
