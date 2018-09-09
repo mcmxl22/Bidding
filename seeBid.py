@@ -1,7 +1,7 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 # By Micah M. 2018
-# seeBid version 1.01
-# Python 3.6.5
+# seeBid version 1.1
+# Python 3.7
 
 
 import sqlite3
