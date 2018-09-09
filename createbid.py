@@ -14,7 +14,7 @@ class bid():
     def createBid(self):
 
         fileName = input('Enter file name.\n> ')
-        conn = sqlite3.connect(fileName + '.db')
+        conn = sqlite3.connect(f'{fileName}.db')
         cursor = conn.cursor()            
         Name = input('Team member\'s name: ')
         Seniority = input('Team member\'s seniority: ')
@@ -43,7 +43,7 @@ class bid():
         if creatFile == 'y':
 
             fileName = input('What should the filename be?\n> ')
-            conn = sqlite3.connect(fileName + '.db')
+            conn = sqlite3.connect(f'{fileName}.db')
             cursor = conn.cursor()        
             print('Creating table.')
             sql = '''create table bid (
@@ -61,7 +61,7 @@ class bid():
         while True:
 
             fileName = input('Enter file name.\n> ')
-            conn = sqlite3.connect(fileName + '.db')
+            conn = sqlite3.connect(f'{fileName}.db')
             cursor = conn.cursor()            
             Name = input('Team member\'s name: ')
             Seniority = input('Team member\'s seniority: ')
@@ -89,7 +89,7 @@ class bid():
         if creatFile == 'y':
 
             fileName = input('What should the filename be?\n> ')
-            conn = sqlite3.connect(fileName + '.db')
+            conn = sqlite3.connect(f'{fileName}.db')
             cursor = conn.cursor()        
             print('Creating table.')
             sql = '''create table bid (
