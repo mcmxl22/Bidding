@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# By Micah M. 2018
-# createBid version 1.1
-# Python 3.7
+'''By Micah M. 2018
+   createBid version 1.1
+   Python 3.7'''
 
 
 import sqlite3
@@ -38,11 +38,11 @@ class bid():
 
     def createTable(self):
 
-        creatFile = input('Do you want to create a new bid file?\n> ')
+        creatFile = input('Create a new bid file?\n> ')
 
         if creatFile == 'y':
 
-            fileName = input('What should the filename be?\n> ')
+            fileName = input('Name the file.\n> ')
             conn = sqlite3.connect(f'{fileName}.db')
             cursor = conn.cursor()        
             print('Creating table.')
@@ -84,11 +84,11 @@ class bid():
 
     def createTable(self):
 
-        creatFile = input('Do you want to create a new bid file?\n> ')
+        creatFile = input('Create a new bid file?\n> ')
 
         if creatFile == 'y':
 
-            fileName = input('What should the filename be?\n> ')
+            fileName = input('Name the file.\n> ')
             conn = sqlite3.connect(f'{fileName}.db')
             cursor = conn.cursor()        
             print('Creating table.')
