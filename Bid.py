@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# By Micah M. 2018
-# Bid Version 1.2
-# Python 3.7
+'''By Micah M. 2018
+   Bid Version 1.2
+   Python 3.7'''
 
 
 import os.path
@@ -13,7 +13,7 @@ import subprocess
 # seniority numbers and current bid line numbers.
 
 def activityChoices():
-    entry = ('\nInvalid entry!\n')
+    entry = ('\nInvalid Entry!\n')
     answer = ('y', 'n')
     actions = ['1 Create new bid',  '2 View current bid files', 
                '3 Edit bid lines', '4 Edit team members', '5 Create Lists', 
