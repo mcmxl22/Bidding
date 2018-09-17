@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# By Micah M. 2018
-# deleteBid version 1.1
-# Python 3.7
+'''By Micah M. 2018
+   deleteBid version 1.1
+   Python 3.7'''
 
 
 import os
