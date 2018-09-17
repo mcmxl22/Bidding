@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# By Micah M. 2018
-# bidding version 1.2
-# Python 3.7
+'''By Micah M. 2018
+   bidding version 1.2
+   Python 3.7'''
 
 
 import sqlite3
