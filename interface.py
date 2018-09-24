@@ -22,7 +22,7 @@ def interface():
     options = ('1 Yes', '2 No')
     print('\n'.join(options))
     confirm = input(f'Is this you? {bid_list}\n')
-
+    cursor.close()
 
 	# Enter desired bid line
     if confirm == '1':
