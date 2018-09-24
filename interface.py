@@ -25,7 +25,7 @@ def interface():
     confirm = input(f'Is this correct? {bid_list}\n')
     cursor.close()
 
-	# Enter desired bid line.
+    # Enter desired bid line.
     if confirm == '1':
         bid_choice = [sys.executable, 'createBid.py']
         subprocess.call(bid_choice)
