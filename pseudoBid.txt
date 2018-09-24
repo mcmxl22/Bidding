@@ -4,5 +4,5 @@ Create database of all employees with their seniority numbers and current bid li
 	
 Create interface allowing team members to bid on work. interface.py 
     Enter name
-    confirm name and current bid
+    confirm name and current bid:
 	Enter desired bid line. createBid.py
