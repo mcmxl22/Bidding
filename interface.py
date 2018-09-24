@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 '''By Micah M. 2018
    bid_interface version 1
-   Python 3.7'''
-
+   Python 3.7
+   requires createBid.py'''
 
 import sqlite3
 import subprocess
@@ -24,11 +24,10 @@ def interface():
     confirm = input(f'Is this you? {bid_list}\n')
     cursor.close()
 
-	# Enter desired bid line
+    # Enter desired bid line
     if confirm == '1':
-        #bid_choice = [sys.executable, '...']
-        #subprocess.call(...)
-        pass
+        bid_choice = [sys.executable, 'createBid.py']
+        subprocess.call(bid_choice)
         
     elif confirm == '2':
         interface()
