@@ -88,7 +88,7 @@ def activityChoices():
 
     elif select == '6':
         deleteBid = [sys.executable, 'deleteBid.py']
-        subprocess.call(deleteBid)            
+        subprocess.call(deleteBid)      
 
     elif select == '7':
         raise SystemExit
