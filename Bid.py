@@ -13,8 +13,8 @@ import subprocess
 
 def activityChoices():
     entry = ('\nInvalid Entry!\n')
-    actions = ['1 Create new bid',  '2 View current bid files', 
-               '3 Edit bid lines', '4 Edit team members', '5 Create Lists', 
+    actions = ['1 Create new bid',  '2 View current bid files',
+               '3 Edit bid lines', '4 Edit team members', '5 Create Lists',
                '6 Delete a bid', '7 Exit\n']
     print(' \n'.join(actions))
 
