@@ -21,7 +21,7 @@ def create_bid():
         cursor.execute(sql,
                       {'tm_Name': Name,
                        'tm_Seniority': Seniority,
-                       'tm_BidLine': bid_line})
+                       'tm_bid_Line': bid_line})
         conn.commit()
         cont = input('Add another team member? ')
         if cont[0].lower() == 'n':
