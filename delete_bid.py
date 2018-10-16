@@ -10,20 +10,20 @@ import subprocess
 
 
 def delete():
-
-    fileName = input('Enter file to be deleted or press b to go back.\n> ')
-    if fileName == 'b':
+    '''Delete a bid file.'''
+    file_name = input('Enter file to be deleted or press b to go back.\n> ')
+    if file_name == 'b':
         Bid = [sys.executable, 'Bid.py']
         subprocess.call(Bid)
     
-    if os.path.exists(fileName) is False: # Check if database file exists.
-        print(f'File {fileName} doesn\'t exist!')
+    if os.path.exists(file_name) is False:
+        print(f'File {file_name} doesn\'t exist!')
         delete() 
     
-    confirm = input(f'Are you sure you want to delete {fileName}?\n> ') # Confirm file to be deleted.
+    confirm = input(f'Are you sure you want to delete {file_name}?\n> ')
   
     if confirm == 'y':
-        os.remove(fileName) 
+        os.remove(file_name) 
         print('Done!')
         delete()
     else:
