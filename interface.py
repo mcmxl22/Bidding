@@ -2,7 +2,7 @@
 '''By Micah M. 2018
    bid_interface version 1
    Python 3.7
-   requires createBid.py'''
+   requires create_bid.py'''
 
 
 import sqlite3
@@ -27,7 +27,7 @@ def interface():
 
     # Enter desired bid line.
     if confirm == '1':
-        bid_choice = [sys.executable, 'createBid.py']
+        bid_choice = [sys.executable, 'create_bid.py']
         subprocess.call(bid_choice)
 
     elif confirm == '2':
