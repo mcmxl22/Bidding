@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''By Micah M. 2018
-   bid_interface version 1
+   Interface version 1
    Python 3.7
    requires create_bid.py'''
 
