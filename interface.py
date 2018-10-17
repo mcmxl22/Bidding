@@ -2,7 +2,7 @@
 '''By Micah M. 2018
    Interface version 1
    Python 3.7
-   requires create_bid.py'''
+   Requires create_bid.py'''
 
 
 import sqlite3
@@ -11,21 +11,17 @@ import sys
 
 def interface():
     '''Create interface allowing team members to bid on work.'''
-    # Enter name
-    name = input('Enter your name. ')
-
-    # confirm name and current bid.
+    get_name = input('Enter your name. ')
     conn = sqlite3.connect('Bid.db')
     cursor = conn.cursor()
     sql = 'SELECT * FROM Bid WHERE Name=?'
-    results = cursor.execute(sql, [name])
+    results = cursor.execute(sql, [get_name])
     bid_list = results.fetchall()
     options = ('1 Yes', '2 No')
     print('\n'.join(options))
     confirm = input(f'Is this correct? {bid_list}\n')
     cursor.close()
 
-    # Enter desired bid line.
     if confirm == '1':
         bid_choice = [sys.executable, 'create_bid.py']
         subprocess.call(bid_choice)
