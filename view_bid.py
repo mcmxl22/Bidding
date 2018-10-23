@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 '''By Micah M. 2018
    view_bid version 1.2
    Python 3.7'''
