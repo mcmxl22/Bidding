@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 '''By Micah M. 2018
-   seeBid version 1.2
+   view_bid version 1.2
    Python 3.7'''
 
 
