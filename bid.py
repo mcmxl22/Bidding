@@ -17,13 +17,13 @@ def bid():
     print('\n'.join(bid_options))
     bid_choice = input('What do you want to do? ')
 
-    if bid_choice == '1':
+    if bid_choice in '1':
         subprocess.run(create_bid)
 
-    elif bid_choice == '2':
+    elif bid_choice in '2':
         subprocess.run(view_bid)
 
-    elif bid_choice == '3':
+    elif bid_choice in '3':
         raise SystemExit
 
     else:
