@@ -12,7 +12,7 @@ def bid():
     '''bid'''
     create_bid = [sys.executable, 'createbid.py']
     view_bid = [sys.executable, 'seebid.py']
-    bid_options = ('1 create bid', '2 View bid', '3 Exit')
+    bid_options = ['1 create bid', '2 View bid', '3 Exit']
 
     print('\n'.join(bid_options))
     bid_choice = input('What do you want to do? ')
