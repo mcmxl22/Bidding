@@ -1,35 +1,32 @@
 #!/usr/bin/env python
 '''By Micah M. 2018
-   bid version 1.3
-   Python 3.7'''
+   bid version 1.4
+   Python 3.7.1'''
 
 
-import subprocess
-import sys
+from create_bid import create_bid
+from view_bid import view_bid
 
 
-def bid():
+def bid(bid_options):
     '''bid'''
-    create_bid = [sys.executable, 'createbid.py']
-    view_bid = [sys.executable, 'seebid.py']
-    bid_options = ['1 create bid', '2 View bid', '3 Exit']
+    while True:
+        bid_options = ['1 Create bid', '2 View bid', '3 Exit']
+        print('\n'.join(bid_options))
+        bid_choice = input('What do you want to do? ')
 
-    print('\n'.join(bid_options))
-    bid_choice = input('What do you want to do? ')
+        if bid_choice in '1':
+            create_bid()
 
-    if bid_choice in '1':
-        subprocess.run(create_bid)
+        elif bid_choice in '2':
+            view_bid()
 
-    elif bid_choice in '2':
-        subprocess.run(view_bid)
+        elif bid_choice in '3':
+            raise SystemExit
 
-    elif bid_choice in '3':
-        raise SystemExit
-
-    else:
-        print('Invalid Answer!')
-        bid()
+        else:
+            print('Invalid Answer!')
 
 
 if __name__ == "__main__":
-    bid()
+    bid('bid_options')
