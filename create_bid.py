@@ -1,9 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 '''By Micah M. 2018
-   createBid version 1.3
-   Python 3.7'''
+   create_bid version 1.4
+   Python 3.7.1'''
+
 
 import sqlite3
+
 
 def create_bid():
     '''create_bid'''
@@ -11,20 +13,20 @@ def create_bid():
     cursor = conn.cursor()
 
     while True:
-        Name = input('Team Member\'s name: ')
-        Seniority = input('Team Member\'s seniority: ')
-        bid_line = input('Team Member\'s bid: ')
+        name = input('Name: ')
+        seniority = input('Seniority: ')
+        bid_line = input('Desired bid: ')
         sql = '''insert into Bid
-                 (Name, Seniority, bid_line)
+                 (Name, Seniority, Bidline)
                   values
-                 (:tm_Name, :tm_Seniority, :tm_bid_line)'''
+                 (:tm_Name, :tm_Seniority, :tm_Bidline)'''
         cursor.execute(sql,
-                      {'tm_Name': Name,
-                       'tm_Seniority': Seniority,
-                       'tm_bid_Line': bid_line})
+                       {'tm_Name': name,
+                       'tm_Seniority': seniority,
+                       'tm_Bidline': bid_line})
         conn.commit()
-        cont = input('Add another team member? ')
-        if cont[0].lower() == 'n':
+        add_member = input('Add another team member? ')
+        if add_member[0].lower() in 'n':
             cursor.close()
             raise SystemExit
 
