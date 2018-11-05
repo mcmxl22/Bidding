@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 '''By Micah M. 2018
-   Interface version 1.1
-   Python 3.7
-   Requires create_bid.py'''
-
+   Interface version 1.2
+   Python 3.7.1'''
 
 import sqlite3
-import subprocess
-import sys
+from create_bid import create_bid
 
-def interface():
+
+def interface(confirm):
     '''Create interface allowing team members to bid on work.'''
     while True:
         get_name = input('Enter your name. ')
@@ -20,21 +18,20 @@ def interface():
         bid_list = results.fetchall()
         options = ('1 Yes', '2 No', '3 Exit')
         print('\n'.join(options))
-        confirm = input(f'Is this correct? {bid_list}\n')
+        confirm = input(f'Is this correct? {bid_list} ')
         cursor.close()
 
-        if confirm == '1':
-            bid_choice = [sys.executable, 'create_bid.py']
-            subprocess.run(bid_choice)
+        if confirm in '1':
+            create_bid()
 
-        elif confirm == '2':
-            interface()
+        elif confirm in '2':
+            interface(confirm)
 
-        elif confirm == '3':
+        elif confirm in '3':
             raise SystemExit
 
         else:
             print('Invalid Entry!')
 
 if __name__ == "__main__":
-    interface()
+    interface('confirm')
