@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 '''By Micah M. 2018
-   view_bid version 1.2
-   Python 3.7'''
+   view_bid version 1.3
+   Python 3.7.1'''
 
 
 import sqlite3
 
 
-def see_bid():
-    '''View a bid'''
+def view_bid():
+    '''View a bid.'''
     conn = sqlite3.connect('Bid.db')
     cursor = conn.cursor()
     sql = '''select * from bid'''
@@ -19,4 +19,4 @@ def see_bid():
 
 
 if __name__ == "__main__":
-    see_bid()
+    view_bid()
