@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-'''By Micah M. 2018
+"""By Micah M. 2018
    bid version 1.4
-   Python 3.7.1'''
+   Python 3.7.1"""
 
 
 from create_bid import create_bid
@@ -9,7 +9,7 @@ from view_bid import view_bid
 
 
 def bid(bid_options):
-    '''bid'''
+    """bid"""
     while True:
         bid_options = ['1 Create bid', '2 View bid', '3 Exit']
         print('\n'.join(bid_options))

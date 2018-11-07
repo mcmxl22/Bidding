@@ -1,14 +1,14 @@
 #!/usr/bin/env python
-'''By Micah M. 2018
+"""By Micah M. 2018
    create_bid version 1.4
-   Python 3.7.1'''
+   Python 3.7.1"""
 
 
 import sqlite3
 
 
 def create_bid():
-    '''create_bid'''
+    """create_bid"""
     conn = sqlite3.connect('Bid.db')
     cursor = conn.cursor()
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
-'''By Micah M. 2018
+"""By Micah M. 2018
    Interface version 1.2
-   Python 3.7.1'''
+   Python 3.7.1"""
 
 import sqlite3
 from create_bid import create_bid
 
 
 def interface(confirm):
-    '''Create interface allowing team members to bid on work.'''
+    """Create interface allowing team members to bid on work."""
     while True:
         get_name = input('Enter your name. ')
         conn = sqlite3.connect('Bid.db')
@@ -32,6 +32,7 @@ def interface(confirm):
 
         else:
             print('Invalid Entry!')
+
 
 if __name__ == "__main__":
     interface('confirm')
