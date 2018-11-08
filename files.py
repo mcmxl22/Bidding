@@ -7,7 +7,7 @@ import os.path
 
 
 def create_files(file_name):
-    '''Create a file and/or confirm it.'''
+    """Create a file and/or confirm it."""
     file_name = input('Enter file name. ')
     if os.path.exists(file_name):
         print(f'{file_name} already exists!')
