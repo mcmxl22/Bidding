@@ -30,8 +30,8 @@ def delete_file(file_name):
 def file_options(file_name):
     """Choose what to do with a file."""
     while True:
-        file_options = ['1 Create file', '2 Delete file', '3 Exit']
-        print('\n'.join(file_options))
+        options_list = ['1 Create file', '2 Delete file', '3 Exit']
+        print('\n'.join(options_list))
         file_choice = input('Choose an option. ')
         if file_choice in '1':
             create_files(file_name)
