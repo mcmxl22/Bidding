@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-"""By Micah M. 2018
-   Interface version 1.2
-   Python 3.7.1"""
+#!/bin/python3
+"""Interface version 1.2
+   Python 3.7.2"""
 
 import sqlite3
 from create_bid import create_bid
