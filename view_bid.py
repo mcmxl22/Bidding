@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-"""By Micah M. 2018
-   view_bid version 1.3
-   Python 3.7.1"""
+#!/bin/python3
+"""view_bid version 1.3
+   Python 3.7.2"""
 
 
 import sqlite3
