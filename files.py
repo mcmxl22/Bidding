@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-"""By Micah M. 2018
-   files Version 1.4
-   Python 3.7.1"""
+#!/bin/python3
+"""files Version 1.6
+   Python 3.7.2"""
 
 import os.path
 
@@ -12,10 +11,9 @@ def create_files(file_name):
     if os.path.exists(file_name):
         print(f'{file_name} already exists!')
     else:
-        f = open(file_name, 'w+')
-        if os.path.exists(file_name):
-            print(f'{file_name} created!')
-        f.close()
+        with open(file_name, 'w+'):
+            if os.path.exists(file_name):
+                print(f'{file_name} created!')
 
 
 def delete_file(file_name):
@@ -30,8 +28,9 @@ def delete_file(file_name):
 def file_options(file_name):
     """Choose what to do with a file."""
     while True:
-        options_list = ['1 Create file', '2 Delete file', '3 Exit']
-        print('\n'.join(options_list))
+        file_options = ['Create file', 'Delete file', 'Exit']
+        for index, file in enumerate(file_options, start=1):
+            print(index, file)
         file_choice = input('Choose an option. ')
         if file_choice in '1':
             create_files(file_name)
