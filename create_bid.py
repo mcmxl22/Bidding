@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-"""By Micah M. 2018
-   create_bid version 1.4
-   Python 3.7.1"""
+#!/bin/python3
+"""create_bid version 1.4
+   Python 3.7."""
 
 
 import sqlite3
