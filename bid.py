@@ -1,31 +1,34 @@
 #!/bin/python3
-"""bid version 1.4
-   Python 3.7.1"""
+"""
+bid version 1.5
+Python 3.7
+"""
 
 
 from create_bid import create_bid
 from view_bid import view_bid
+from numli import addnum
 
 
 def bid(bid_options):
     """bid"""
     while True:
-        bid_options = ['1 Create bid', '2 View bid', '3 Exit']
-        print('\n'.join(bid_options))
-        bid_choice = input('What do you want to do? ')
+        bid_options = ["Create bid", "View bid", "Exit"]
+        addnum(bid_options)
+        bid_choice = input("What do you want to do? ")
 
-        if bid_choice in '1':
+        if bid_choice in "1":
             create_bid()
 
-        elif bid_choice in '2':
+        elif bid_choice in "2":
             view_bid()
 
-        elif bid_choice in '3':
-            raise SystemExit
+        elif bid_choice in "3":
+            exit(0)
 
         else:
-            print('Invalid Answer!')
+            print("Invalid Answer!")
 
 
 if __name__ == "__main__":
-    bid('bid_options')
+    bid("bid_options")
