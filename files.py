@@ -1,14 +1,12 @@
-#!/bin/python3
 """
-files Version 1.7
+files Version 1.8
 Python 3.7
 """
 
-from numli import addnum
-from os import path
+from os import path, remove
 
 
-def create_files(file_name):
+def create_files():
     """Create a file and/or confirm it."""
     file_name = input("Enter file name. ")
 
@@ -21,32 +19,33 @@ def create_files(file_name):
                 print(f"{file_name} created!")
 
 
-def delete_file(file_name):
+def delete_file():
     """Delete files."""
     file_name = input("Enter file to be deleted. ")
-    confirm_file = input(f"Are you sure you want to delete {file_name}? ")
+    confirm_file = input(f"Delete {file_name}? ")
 
-    if confirm_file is "y":
-        os.remove(file_name)
+    if confirm_file == "y":
+        remove(file_name)
         print(f"{file_name} deleted!")
 
 
-def file_options(file_name):
+def file_options():
     """Choose what to do with a file."""
     while True:
-        file_options = ["Create file", "Delete file", "Exit"]
-        addnum(file_options)
+        file_options = ["1 Create file", "2 Delete file", "3 Exit"]
+        for i in file_options:
+            print(i)
         file_choice = input("Choose an option. ")
 
         if file_choice in "1":
-            create_files(file_name)
+            create_files()
 
         elif file_choice in "2":
-            delete_file(file_name)
+            delete_file()
 
         elif file_choice in "3":
-            exit(0)
+            break
 
 
 if __name__ == "__main__":
-    file_options("file_name")
+    file_options()
